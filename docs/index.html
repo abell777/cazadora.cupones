@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cazadora de Cupones y Chollos Reales — cupones que sí funcionan</title>
+<meta name="description" content="Extensión de Chrome que prueba automáticamente cupones de descuento reales en el carrito de compra y avisa si el producto está más barato en otra tienda.">
+<link rel="icon" href="icon.png">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700&display=swap');
+
+  :root {
+    --cz-ink: #17261f;
+    --cz-paper: #faf6ec;
+    --cz-paper-2: #f2ecdc;
+    --cz-green: #1f5c45;
+    --cz-green-dark: #143c2e;
+    --cz-gold: #d9a62e;
+    --cz-sage-line: #c7d3c5;
+    --cz-error: #b3261e;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--cz-paper);
+    color: var(--cz-ink);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+    line-height: 1.55;
+  }
+
+  .mono { font-family: 'Space Mono', 'Courier New', monospace; }
+
+  a { color: var(--cz-green-dark); }
+
+  .wrap {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* --- La página entera se presenta como un tique de compra largo --- */
+
+  .receipt {
+    max-width: 640px;
+    margin: 48px auto;
+    background: #fffdf7;
+    border: 1px solid var(--cz-sage-line);
+    box-shadow: 0 24px 60px -30px rgba(23, 38, 31, 0.35);
+    position: relative;
+  }
+
+  .receipt::before,
+  .receipt::after {
+    content: "";
+    display: block;
+    height: 14px;
+    background:
+      linear-gradient(-45deg, var(--cz-paper) 8px, transparent 0),
+      linear-gradient(45deg, var(--cz-paper) 8px, transparent 0);
+    background-size: 16px 16px;
+    background-repeat: repeat-x;
+  }
+  .receipt::after { transform: rotate(180deg); }
+
+  .receipt-body { padding: 8px 40px 40px; }
+
+  @media (max-width: 640px) {
+    .receipt-body { padding: 8px 22px 32px; }
+    .receipt { margin: 24px 12px; }
+  }
+
+  .dashed {
+    border: none;
+    border-top: 2px dashed var(--cz-sage-line);
+    margin: 32px 0;
+  }
+
+  /* --- Cabecera del tique --- */
+
+  header.top {
+    text-align: center;
+    padding-top: 28px;
+  }
+
+  header.top img { width: 56px; height: 56px; display: block; margin: 0 auto 14px; }
+
+  .eyebrow {
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    color: var(--cz-green);
+    letter-spacing: 0.02em;
+  }
+
+  h1 {
+    font-family: 'Space Mono', monospace;
+    font-size: clamp(28px, 5vw, 38px);
+    line-height: 1.15;
+    margin: 10px 0 14px;
+    color: var(--cz-green-dark);
+  }
+
+  .lede {
+    font-size: 17px;
+    color: #3a473f;
+    max-width: 46ch;
+    margin: 0 auto;
+  }
+
+  /* --- Línea de tique simulada (hero) --- */
+
+  .ticket-line {
+    margin-top: 34px;
+    background: var(--cz-green-dark);
+    color: var(--cz-paper);
+    padding: 20px 22px;
+    font-family: 'Space Mono', monospace;
+    font-size: 14px;
+  }
+  .ticket-line .row { display: flex; justify-content: space-between; padding: 4px 0; }
+  .ticket-line .row.total { border-top: 1px dashed rgba(250,246,236,0.35); margin-top: 8px; padding-top: 12px; font-weight: 700; }
+  .ticket-line .saved { color: var(--cz-gold); }
+
+  /* --- Secciones --- */
+
+  h2 {
+    font-family: 'Space Mono', monospace;
+    font-size: 20px;
+    color: var(--cz-green-dark);
+    margin: 0 0 18px;
+  }
+
+  .steps { list-style: none; margin: 0; padding: 0; }
+  .steps li {
+    display: grid;
+    grid-template-columns: 28px 1fr;
+    gap: 14px;
+    padding: 14px 0;
+    border-top: 1px dashed var(--cz-sage-line);
+  }
+  .steps li:first-child { border-top: none; }
+  .steps .num {
+    font-family: 'Space Mono', monospace;
+    color: var(--cz-gold);
+    font-weight: 700;
+  }
+  .steps h3 { margin: 0 0 4px; font-size: 15.5px; }
+  .steps p { margin: 0; color: #4a564d; font-size: 14.5px; }
+
+  .features { list-style: none; margin: 0; padding: 0; }
+  .features li {
+    padding: 12px 0;
+    border-top: 1px dashed var(--cz-sage-line);
+    font-size: 15px;
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .features li:first-child { border-top: none; }
+  .features .label { font-weight: 600; }
+  .features .val { font-family: 'Space Mono', monospace; color: var(--cz-green); text-align: right; white-space: nowrap; }
+
+  /* --- Vista previa (mockup, no es una captura real) --- */
+
+  .preview-note {
+    font-size: 12.5px;
+    color: #6b7568;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .popup-mock {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    border: 1px solid var(--cz-sage-line);
+    border-radius: 4px;
+    overflow: hidden;
+    font-size: 13px;
+  }
+  .popup-mock .head {
+    background: var(--cz-green);
+    color: var(--cz-paper);
+    padding: 12px 14px;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+  }
+  .popup-mock .body { background: var(--cz-paper); padding: 12px 14px; }
+  .popup-mock .coupon {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 10px;
+    background: #fff;
+    border: 1px dashed var(--cz-sage-line);
+    border-radius: 3px;
+    margin-bottom: 8px;
+  }
+  .popup-mock .code { font-family: 'Space Mono', monospace; font-weight: 700; color: var(--cz-green-dark); }
+  .popup-mock .pill {
+    font-size: 10.5px;
+    background: var(--cz-gold);
+    color: var(--cz-green-dark);
+    padding: 2px 6px;
+    border-radius: 20px;
+    font-weight: 700;
+  }
+
+  /* --- CTA --- */
+
+  .cta-box {
+    text-align: center;
+    background: var(--cz-paper-2);
+    border: 1px dashed var(--cz-sage-line);
+    padding: 26px 20px;
+  }
+  .cta-box .status {
+    display: inline-block;
+    font-family: 'Space Mono', monospace;
+    font-size: 12.5px;
+    color: var(--cz-green-dark);
+    background: #fff;
+    border: 1px solid var(--cz-sage-line);
+    padding: 5px 12px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+  }
+  .cta-box p { margin: 10px auto 0; max-width: 42ch; color: #4a564d; font-size: 14.5px; }
+  .btn {
+    display: inline-block;
+    margin-top: 16px;
+    background: var(--cz-green-dark);
+    color: var(--cz-paper) !important;
+    text-decoration: none;
+    padding: 12px 22px;
+    font-weight: 600;
+    font-size: 14.5px;
+    border-radius: 3px;
+  }
+  .btn:hover { background: var(--cz-green); }
+
+  footer.bottom {
+    text-align: center;
+    font-size: 13px;
+    color: #6b7568;
+  }
+  footer.bottom a { color: #6b7568; }
+  footer.bottom .links { margin-top: 6px; }
+  footer.bottom .links a { margin: 0 8px; }
+</style>
+</head>
+<body>
+
+<div class="receipt">
+  <div class="receipt-body">
+
+    <header class="top">
+      <img src="icon.png" alt="">
+      <div class="eyebrow">CAZADORA DE CUPONES</div>
+      <h1>Antes de pagar,<br>que lo pruebe ella.</h1>
+      <p class="lede">Una extensión de Chrome que prueba automáticamente los cupones de descuento reales en el carrito de cualquier tienda online, y avisa si el mismo producto está más barato en otra parte.</p>
+    </header>
+
+    <div class="ticket-line">
+      <div class="row"><span>Freidora de aire 5,5L</span><span>80,00 €</span></div>
+      <div class="row"><span class="mono">CUPÓN CECOBIENVENIDA</span><span class="saved">−12,00 €</span></div>
+      <div class="row total"><span>Total con Cazadora</span><span>68,00 €</span></div>
+    </div>
+
+    <hr class="dashed">
+
+    <section>
+      <h2>Cómo funciona</h2>
+      <ul class="steps">
+        <li>
+          <span class="num mono">1</span>
+          <div>
+            <h3>Detecta tu carrito</h3>
+            <p>En cuanto llegas a la pantalla de pago de una tienda, la extensión reconoce el campo de "código de descuento".</p>
+          </div>
+        </li>
+        <li>
+          <span class="num mono">2</span>
+          <div>
+            <h3>Prueba los cupones guardados</h3>
+            <p>En segundo plano, en unos 3 segundos, comprueba los códigos disponibles para esa tienda y aplica el que más rebaja el total.</p>
+          </div>
+        </li>
+        <li>
+          <span class="num mono">3</span>
+          <div>
+            <h3>Compara con otras tiendas</h3>
+            <p>El radar de precios te avisa si el mismo producto está claramente más barato en otra tienda, o si ha subido de precio justo antes de las "rebajas".</p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <hr class="dashed">
+
+    <section>
+      <h2>Por qué es distinta</h2>
+      <ul class="features">
+        <li><span class="label">Base de datos</span><span class="val">comunidad + IA</span></li>
+        <li><span class="label">Cobertura</span><span class="val">global, no solo grandes tiendas</span></li>
+        <li><span class="label">Fuentes</span><span class="val">Telegram, foros, aportes de usuarios</span></li>
+        <li><span class="label">Coste para ti</span><span class="val">gratis</span></li>
+      </ul>
+    </section>
+
+    <hr class="dashed">
+
+    <section>
+      <h2>Vista previa</h2>
+      <div class="popup-mock">
+        <div class="head"><span>Cazadora de Cupones</span><span>⚙</span></div>
+        <div class="body">
+          <div class="coupon"><span class="code">CECOBIENVENIDA</span><span class="pill">10%</span></div>
+          <div class="coupon"><span class="code">CECOTEC10</span><span class="pill">10€</span></div>
+        </div>
+      </div>
+      <p class="preview-note">Ilustración del popup real de la extensión, no una captura de pantalla.</p>
+    </section>
+
+    <hr class="dashed">
+
+    <section class="cta-box">
+      <span class="status">● en desarrollo</span>
+      <h2 style="margin-bottom:0;">Próximamente en Chrome Web Store</h2>
+      <p>Ahora mismo la extensión está en pruebas antes de publicarse. Si quieres seguir el progreso o escribirnos, puedes hacerlo desde el repositorio del proyecto.</p>
+      <a class="btn" href="https://github.com/abell777/cazadora.cupones" id="repo-link">Ver el proyecto en GitHub</a>
+    </section>
+
+  </div>
+
+  <footer class="bottom" style="padding-bottom: 28px;">
+    <div>Cazadora de Cupones y Chollos Reales</div>
+    <div class="links">
+      <a href="privacidad.html">Política de privacidad</a>
+      <a href="mailto:cazadoradecupones@gmail.com" id="contact-link">Contacto</a>
+    </div>
+  </footer>
+</div>
+
+</body>
+</html>
