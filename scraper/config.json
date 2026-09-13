@@ -1,0 +1,21 @@
+{
+  "_comentario": "Copia este archivo como config.json y edítalo. NO metas aquí ninguna clave secreta (esas van como variables de entorno: SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, ANTHROPIC_API_KEY).",
+
+  "telegram_channels": [
+    "_ejemplo_pon_aqui_el_username_publico_del_canal_sin_arroba"
+  ],
+
+  "forum_pages": [
+    {
+      "_comentario": "Cada entrada es UNA página/hilo concreto, no un buscador. Añade solo fuentes cuyos Términos de Servicio permitan la lectura automatizada.",
+      "name": "_ejemplo_nombre_descriptivo",
+      "url": "https://ejemplo.com/hilo-de-chollos"
+    }
+  ],
+
+  "messages_per_channel": 30,
+  "request_delay_seconds": 2,
+
+  "auto_approve_confidence_threshold": null,
+  "_nota_auto_approve": "Déjalo en null para que TODO pase por tu revisión manual en Supabase (recomendado al empezar). Si más adelante confías en la calidad, puedes poner ej. 0.95 para que solo se aprueben solos los cupones en los que el modelo esté casi seguro."
+}
