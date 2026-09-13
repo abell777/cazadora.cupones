@@ -1,0 +1,43 @@
+name: Scraper de cupones (Telegram/foros)
+
+# Se ejecuta solo, sin necesitar un servidor propio: GitHub Actions es
+# gratis para repos públicos (y tiene minutos gratis de sobra para esto en
+# repos privados). Ajusta la hora del cron a tu gusto; por defecto corre
+# una vez al día a las 06:00 UTC.
+on:
+  schedule:
+    - cron: "0 6 * * *"
+  workflow_dispatch: {}  # también puedes lanzarlo a mano desde la pestaña "Actions"
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instalar dependencias
+        run: pip install -r scraper/requirements.txt
+
+      - name: Ejecutar scraper
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python scraper/scrape_deals.py --config scraper/config.json
+        working-directory: .
+
+# Antes de que esto funcione tienes que:
+#   1. Ejecutar schema-ai-scraper.sql en Supabase (una vez).
+#   2. Crear scraper/config.json a partir de config.example.json y
+#      hacer commit (sin claves secretas dentro, solo la lista de
+#      canales/páginas).
+#   3. En este repo de GitHub: Settings -> Secrets and variables ->
+#      Actions -> New repository secret, y añadir:
+#        SUPABASE_URL
+#        SUPABASE_SERVICE_ROLE_KEY  (Project Settings -> API -> service_role,
+#          NO la anon key: esta es secreta, nunca la metas en la extensión)
+#        ANTHROPIC_API_KEY

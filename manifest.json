@@ -1,0 +1,47 @@
+{
+  "manifest_version": 3,
+  "name": "__MSG_appName__",
+  "short_name": "Cazadora Cupones",
+  "version": "0.13.0",
+  "default_locale": "en",
+  "description": "__MSG_appDescription__",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "options_page": "options/options.html",
+  "background": {
+    "service_worker": "background/background.js"
+  },
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": [
+        "content/detector.js",
+        "content/widget.js",
+        "content/price-radar-widget.js",
+        "content/content.js",
+        "content/price-radar.js"
+      ],
+      "css": ["content/widget.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}

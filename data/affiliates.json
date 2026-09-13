@@ -1,0 +1,9 @@
+{
+  "_comentario": "Rellena esto según te vayan aprobando en programas de afiliados (Awin, CJ Affiliate, TradeTracker, Amazon Afiliados...). Deja el objeto vacío {} para una tienda hasta que tengas el enlace real; la extensión simplemente no hará nada en esa tienda mientras tanto.",
+
+  "_ejemplo_awin": {
+    "_comentario": "Formato típico de Awin: sustituye MID y AFFID por los tuyos una vez aprobado para esa tienda.",
+    "network": "awin",
+    "trackingUrlTemplate": "https://www.awin1.com/cread.php?awinmid=MID&awinaffid=AFFID&clickref=cazadora&p={TARGET_URL}"
+  }
+}

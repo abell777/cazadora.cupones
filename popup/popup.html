@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title data-i18n="popupTitle">Cazadora de Cupones</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <header class="cz-header">
+    <span class="cz-logo" data-i18n="widgetBrand">🎟️ Cazadora de Cupones</span>
+    <button id="cz-settings-btn" class="cz-settings-btn" data-i18n-title="popupSettingsTitle" title="Ajustes" aria-label="Ajustes">⚙️</button>
+  </header>
+
+  <main>
+    <p class="cz-domain" id="cz-domain" data-i18n="popupDetectingStore">Detectando tienda…</p>
+
+    <section>
+      <h2 data-i18n="popupCouponsSectionTitle">Cupones para esta tienda</h2>
+      <ul id="cz-coupon-list" class="cz-coupon-list">
+        <li class="cz-empty" data-i18n="popupSearchingCoupons">Buscando cupones…</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 data-i18n="popupAddSectionTitle">¿Conoces un código que funcione aquí?</h2>
+      <form id="cz-add-form">
+        <input type="text" id="cz-code-input" data-i18n-placeholder="popupCodePlaceholder" placeholder="Código (ej. VERANO10)" required />
+        <input type="text" id="cz-desc-input" data-i18n-placeholder="popupDescPlaceholder" placeholder="Descripción (opcional)" />
+        <button type="submit" class="cz-btn primary" data-i18n="popupAddButton">Añadir cupón</button>
+      </form>
+      <p class="cz-error" id="cz-error" hidden></p>
+      <p class="cz-hint" id="cz-hint"></p>
+    </section>
+  </main>
+
+  <script src="popup.js"></script>
+</body>
+</html>

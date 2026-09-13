@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title data-i18n="onboardingTitle">Bienvenida a Cazadora de Cupones</title>
+  <link rel="stylesheet" href="onboarding.css" />
+</head>
+<body>
+  <div class="cz-card">
+    <header class="cz-header">
+      <span class="cz-logo" data-i18n="widgetBrand">🎟️ Cazadora de Cupones</span>
+    </header>
+
+    <main>
+      <h1 data-i18n="onboardingTitle">Bienvenida a Cazadora de Cupones</h1>
+      <p class="cz-intro" data-i18n="onboardingIntro">
+        Prueba automáticamente cupones de descuento reales cuando llegas al carrito de cualquier tienda online. Así es como funciona:
+      </p>
+
+      <ol class="cz-steps">
+        <li>
+          <span class="cz-step-icon">🛒</span>
+          <div>
+            <h3 data-i18n="onboardingStep1Title">1. Llega al carrito</h3>
+            <p data-i18n="onboardingStep1Body">Navega y compra como siempre…</p>
+          </div>
+        </li>
+        <li>
+          <span class="cz-step-icon">🔔</span>
+          <div>
+            <h3 data-i18n="onboardingStep2Title">2. Aparece el aviso</h3>
+            <p data-i18n="onboardingStep2Body">Si hay cupones guardados…</p>
+          </div>
+        </li>
+        <li>
+          <span class="cz-step-icon">✅</span>
+          <div>
+            <h3 data-i18n="onboardingStep3Title">3. Se queda el mejor</h3>
+            <p data-i18n="onboardingStep3Body">La extensión prueba cada código…</p>
+          </div>
+        </li>
+      </ol>
+
+      <div class="cz-transparency">
+        <h3 data-i18n="onboardingTransparencyTitle">Cómo se financia</h3>
+        <p data-i18n="onboardingTransparencyBody">En tiendas donde tenemos programa de afiliados…</p>
+        <div class="cz-transparency-links">
+          <a id="cz-privacy-link" href="../legal/privacy-policy.html" target="_blank" rel="noopener" data-i18n="onboardingPrivacyLink">Leer la política de privacidad</a>
+          <button id="cz-open-settings" class="cz-link-btn" data-i18n="onboardingSettingsLink">Abrir ajustes</button>
+        </div>
+      </div>
+
+      <button id="cz-cta" class="cz-btn primary" data-i18n="onboardingCta">Entendido, ¡a por chollos!</button>
+    </main>
+  </div>
+
+  <script src="onboarding.js"></script>
+</body>
+</html>

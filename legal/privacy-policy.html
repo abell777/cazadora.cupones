@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Política de privacidad — Cazadora de Cupones / Privacy Policy — Cazadora de Cupones</title>
+<style>
+  :root {
+    --cz-ink: #17261f;
+    --cz-paper: #faf6ec;
+    --cz-green: #1f5c45;
+    --cz-green-dark: #143c2e;
+    --cz-gold: #d9a62e;
+    --cz-sage-line: #dfe8df;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--cz-paper);
+    color: var(--cz-ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    line-height: 1.55;
+  }
+  header {
+    background: var(--cz-green);
+    color: var(--cz-paper);
+    padding: 22px 20px;
+  }
+  header .brand { font-weight: 700; font-size: 18px; }
+  header .updated { font-size: 12.5px; opacity: 0.85; margin-top: 4px; }
+  main { max-width: 720px; margin: 0 auto; padding: 24px 20px 60px; }
+  .lang-switch { display: flex; gap: 8px; margin-bottom: 22px; }
+  .lang-switch button {
+    border: 1.5px solid var(--cz-sage-line);
+    background: #fff;
+    color: var(--cz-green-dark);
+    border-radius: 7px;
+    padding: 7px 14px;
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .lang-switch button.active { background: var(--cz-gold); border-color: var(--cz-gold); }
+  h1 { font-size: 21px; color: var(--cz-green-dark); }
+  h2 { font-size: 15px; color: var(--cz-green-dark); margin-top: 28px; }
+  p, li { font-size: 14px; }
+  ul { padding-left: 20px; }
+  .contact-box {
+    border: 1.5px dashed var(--cz-sage-line);
+    border-left: 4px solid var(--cz-gold);
+    border-radius: 4px 8px 8px 4px;
+    padding: 12px 14px;
+    margin-top: 10px;
+    background: #fff;
+    font-size: 13.5px;
+  }
+  [data-lang="en"] { display: none; }
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">🎟️ Cazadora de Cupones</div>
+  <div class="updated">Última actualización / Last updated: <strong>[FECHA DE PUBLICACIÓN]</strong></div>
+</header>
+
+<main>
+  <div class="lang-switch">
+    <button type="button" id="btn-es" class="active">Español</button>
+    <button type="button" id="btn-en">English</button>
+  </div>
+
+  <!-- ============================= ESPAÑOL ============================= -->
+  <div data-lang="es">
+    <h1>Política de privacidad</h1>
+    <p>
+      Esta política explica qué información trata la extensión de Chrome
+      "Cazadora de Cupones" y por qué. Está escrita para ser clara, no para
+      esconder nada: si algo aquí no cuadra con lo que hace la extensión,
+      dínoslo.
+    </p>
+
+    <h2>Qué hace la extensión</h2>
+    <p>
+      Cuando visitas la página de carrito o checkout de una tienda online, la
+      extensión busca en esa misma página el campo donde se introduce un
+      código de descuento y, si lo encuentra, te ofrece probar automáticamente
+      los cupones que tenemos guardados para esa tienda.
+    </p>
+
+    <h2>Qué información se procesa y dónde</h2>
+    <ul>
+      <li>
+        <strong>En tu navegador, sin salir de él:</strong> la detección de si
+        una página es un carrito/checkout, la localización del campo de
+        cupón y la lectura del precio total se hacen leyendo el contenido de
+        la propia página en tu dispositivo. Esto no se envía a ningún
+        servidor.
+      </li>
+      <li>
+        <strong>El nombre de dominio de la tienda</strong> (por ejemplo
+        "tiendaejemplo.com", nunca la URL completa con tus datos de
+        pedido) se envía a nuestra base de datos compartida (alojada en
+        Supabase) para consultar qué cupones existen para esa tienda.
+      </li>
+      <li>
+        <strong>Si tú aportas un cupón</strong> (código y, si quieres, una
+        descripción), se guarda en esa misma base de datos compartida para
+        que lo puedan usar el resto de personas que usan la extensión. Junto
+        con el cupón se guarda un identificador aleatorio anónimo generado en
+        tu dispositivo (no tu nombre, correo ni ninguna cuenta) que solo sirve
+        para evitar spam limitando cuántos cupones se pueden enviar seguidos.
+      </li>
+      <li>
+        <strong>Enlaces de afiliado:</strong> en tiendas donde participamos en
+        un programa de afiliados, la extensión hace una petición en segundo
+        plano (como máximo una vez al día por tienda) a la red de afiliación
+        correspondiente (por ejemplo Awin o TradeTracker) incluyendo la URL
+        de la página que estás visitando en esa tienda, para que la red
+        registre la visita. Esto es lo que nos permite ganar una pequeña
+        comisión si compras algo, sin coste añadido para ti. No vendemos ni
+        compartimos esta información con nadie más.
+      </li>
+      <li>
+        <strong>Radar de precios (opcional, activado por defecto):</strong>
+        cuando visitas la ficha de un producto, la extensión lee el precio
+        mostrado en esa misma página y lo envía junto con el dominio y la
+        ruta de la página (nunca tus datos de pago ni información que te
+        identifique) a nuestra base de datos compartida, para poder avisarte
+        si el precio ha subido recientemente o si es el más bajo visto en
+        los últimos 30 días. Si la propia ficha de producto incluye un
+        código de barras (GTIN) o una marca y referencia de fabricante,
+        también se envía ese dato del producto (nunca tuyo) para poder
+        avisarte si el mismo producto está más barato en otra tienda.
+        Puedes desactivarlo en cualquier momento desde los ajustes de la
+        extensión (icono ⚙️ en el popup); si lo desactivas, no se envía ni
+        se registra nada.
+      </li>
+      <li>
+        <strong>Almacenamiento local del navegador</strong>
+        (<code>chrome.storage.local</code>): guardamos ahí, únicamente en tu
+        dispositivo, tu identificador anónimo, qué tiendas se han "sellado"
+        ya hoy para el afiliado, un histórico reciente de los precios que
+        has visto (para el radar de precios), y (solo si no hay base de
+        datos compartida configurada) los cupones que has añadido tú mismo.
+      </li>
+    </ul>
+
+    <h2>Qué NO hacemos</h2>
+    <ul>
+      <li>No recogemos tu nombre, correo electrónico, dirección ni ningún
+        dato que te identifique personalmente.</li>
+      <li>No leemos ni almacenamos contraseñas, datos de tarjetas de pago ni
+        el contenido de tus pedidos.</li>
+      <li>No vendemos información a terceros con fines publicitarios.</li>
+      <li>No seguimos tu navegación fuera de las páginas de carrito/checkout
+        y de ficha de producto de las tiendas donde la extensión actúa, y
+        solo mientras el radar de precios esté activado para esas últimas.</li>
+    </ul>
+
+    <h2>Servicios de terceros que usamos</h2>
+    <p>
+      La base de datos compartida de cupones está alojada en
+      <strong>Supabase</strong>. Las comisiones de afiliado, cuando aplican,
+      pasan por redes como <strong>Awin</strong>, <strong>CJ Affiliate</strong>
+      o <strong>TradeTracker</strong>. Cada una de ellas tiene su propia
+      política de privacidad para los datos que procesan en sus sistemas.
+    </p>
+
+    <h2>Cuánto tiempo se conserva la información</h2>
+    <p>
+      Los cupones aportados por la comunidad permanecen en la base de datos
+      compartida mientras sigan siendo útiles (o hasta que se pidan eliminar,
+      ver contacto abajo). Lo guardado solo en tu navegador se borra si
+      desinstalas la extensión o limpias los datos de navegación.
+    </p>
+
+    <h2>Tus opciones</h2>
+    <p>
+      Puedes desinstalar la extensión en cualquier momento desde
+      <code>chrome://extensions</code>, lo que elimina todo lo guardado
+      localmente en tu navegador. Si quieres que eliminemos un cupón que
+      aportaste desde la base de datos compartida, escríbenos (ver contacto).
+    </p>
+
+    <h2>Menores de edad</h2>
+    <p>Esta extensión no está dirigida a menores de edad ni recoge
+      intencionadamente datos de menores.</p>
+
+    <h2>Cambios en esta política</h2>
+    <p>
+      Si cambiamos algo relevante en cómo tratamos la información,
+      actualizaremos esta página y la fecha de "última actualización" de
+      arriba.
+    </p>
+
+    <h2>Contacto</h2>
+    <div class="contact-box">
+      Para cualquier duda sobre privacidad o para pedir la eliminación de un
+      cupón que aportaste: <strong>[TU CORREO DE CONTACTO AQUÍ]</strong>
+    </div>
+  </div>
+
+  <!-- ============================= ENGLISH ============================= -->
+  <div data-lang="en">
+    <h1>Privacy Policy</h1>
+    <p>
+      This policy explains what information the "Cazadora de Cupones" Chrome
+      extension handles, and why. It's written to be clear, not to hide
+      anything — if something here doesn't match what the extension actually
+      does, please let us know.
+    </p>
+
+    <h2>What the extension does</h2>
+    <p>
+      When you visit a store's cart or checkout page, the extension looks on
+      that same page for the discount code field and, if it finds one,
+      offers to automatically try the coupons we have saved for that store.
+    </p>
+
+    <h2>What information is processed, and where</h2>
+    <ul>
+      <li>
+        <strong>Locally, in your browser only:</strong> detecting whether a
+        page is a cart/checkout page, locating the coupon field, and reading
+        the cart total are all done by reading the page's own content on
+        your device. None of this is sent to any server.
+      </li>
+      <li>
+        <strong>The store's domain name</strong> (e.g. "examplestore.com",
+        never the full URL with your order details) is sent to our shared
+        database (hosted on Supabase) to look up which coupons exist for
+        that store.
+      </li>
+      <li>
+        <strong>If you submit a coupon</strong> (a code and, optionally, a
+        description), it's saved in that same shared database so other
+        extension users can use it. Along with the coupon we store a random
+        anonymous identifier generated on your device (not your name, email,
+        or any account) used only to limit how many coupons can be submitted
+        in a short time, to prevent spam.
+      </li>
+      <li>
+        <strong>Affiliate links:</strong> for stores where we participate in
+        an affiliate program, the extension makes a background request (at
+        most once a day per store) to the corresponding affiliate network
+        (e.g. Awin or TradeTracker) including the URL of the page you're
+        visiting on that store, so the network can register the visit. This
+        is how we may earn a small commission if you make a purchase, at no
+        extra cost to you. We do not sell or share this information with
+        anyone else.
+      </li>
+      <li>
+        <strong>Price radar (optional, on by default):</strong> when you
+        visit a product page, the extension reads the price shown on that
+        page and sends it, together with the store's domain and the page's
+        path (never your payment details or anything that identifies you),
+        to our shared database, so we can warn you if the price has
+        recently gone up or if it's the lowest seen in the last 30 days. If
+        the product page itself includes a barcode (GTIN) or a brand and
+        manufacturer part number, we also send that product data (never
+        anything about you) so we can warn you if the same product is
+        cheaper at another store. You can turn this off anytime in the
+        extension's settings (⚙️ icon in the popup); when off, nothing is
+        sent or recorded.
+      </li>
+      <li>
+        <strong>Local browser storage</strong>
+        (<code>chrome.storage.local</code>): we store, only on your device,
+        your anonymous identifier, which stores have already been "tagged"
+        for affiliate tracking today, a recent history of prices you've
+        seen (for the price radar), and (only when no shared database is
+        configured) any coupons you've added yourself.
+      </li>
+    </ul>
+
+    <h2>What we don't do</h2>
+    <ul>
+      <li>We don't collect your name, email address, physical address, or
+        any personally identifying information.</li>
+      <li>We don't read or store passwords, payment card details, or your
+        order contents.</li>
+      <li>We don't sell information to third parties for advertising.</li>
+      <li>We don't track your browsing outside of the cart/checkout and
+        product pages where the extension is active, and only while the
+        price radar is turned on for the latter.</li>
+    </ul>
+
+    <h2>Third-party services we use</h2>
+    <p>
+      The shared coupon database is hosted on <strong>Supabase</strong>.
+      Affiliate commissions, where applicable, go through networks such as
+      <strong>Awin</strong>, <strong>CJ Affiliate</strong>, or
+      <strong>TradeTracker</strong>. Each has its own privacy policy for the
+      data they process in their own systems.
+    </p>
+
+    <h2>How long information is kept</h2>
+    <p>
+      Coupons submitted by the community stay in the shared database as
+      long as they remain useful (or until removal is requested — see
+      contact below). Anything stored only in your browser is deleted if
+      you uninstall the extension or clear your browsing data.
+    </p>
+
+    <h2>Your choices</h2>
+    <p>
+      You can uninstall the extension at any time from
+      <code>chrome://extensions</code>, which removes everything stored
+      locally in your browser. If you'd like us to remove a coupon you
+      submitted from the shared database, contact us (see below).
+    </p>
+
+    <h2>Children</h2>
+    <p>This extension is not directed at children and does not knowingly
+      collect data from children.</p>
+
+    <h2>Changes to this policy</h2>
+    <p>
+      If we make a meaningful change to how we handle information, we'll
+      update this page and the "last updated" date above.
+    </p>
+
+    <h2>Contact</h2>
+    <div class="contact-box">
+      For any privacy question, or to request removal of a coupon you
+      submitted: <strong>[YOUR CONTACT EMAIL HERE]</strong>
+    </div>
+  </div>
+</main>
+
+<script>
+  const btnEs = document.getElementById("btn-es");
+  const btnEn = document.getElementById("btn-en");
+  const blocks = document.querySelectorAll("[data-lang]");
+
+  function setLang(lang) {
+    blocks.forEach((el) => {
+      el.style.display = el.getAttribute("data-lang") === lang ? "block" : "none";
+    });
+    btnEs.classList.toggle("active", lang === "es");
+    btnEn.classList.toggle("active", lang === "en");
+    document.documentElement.lang = lang;
+  }
+
+  btnEs.addEventListener("click", () => setLang("es"));
+  btnEn.addEventListener("click", () => setLang("en"));
+</script>
+</body>
+</html>

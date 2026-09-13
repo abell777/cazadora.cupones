@@ -1,0 +1,182 @@
+#cazadora-widget {
+  --cz-ink: #17261f;
+  --cz-paper: #faf6ec;
+  --cz-green: #1f5c45;
+  --cz-green-dark: #143c2e;
+  --cz-gold: #d9a62e;
+  --cz-sage: #c9d6c9;
+
+  position: fixed;
+  bottom: 22px;
+  right: 22px;
+  z-index: 2147483647;
+  width: 310px;
+  background: var(--cz-paper);
+  border-radius: 14px 14px 6px 14px;
+  box-shadow: 0 14px 34px rgba(20, 35, 25, 0.28);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  color: var(--cz-ink);
+  overflow: hidden;
+  animation: cz-rise-in 0.32s cubic-bezier(0.2, 0.8, 0.3, 1);
+}
+
+@keyframes cz-rise-in {
+  from { transform: translateY(24px) rotate(1deg); opacity: 0; }
+  to { transform: translateY(0) rotate(0); opacity: 1; }
+}
+
+#cazadora-widget .cz-header {
+  background: var(--cz-green);
+  color: var(--cz-paper);
+  padding: 11px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.01em;
+}
+
+#cazadora-widget .cz-header .cz-brand {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+#cazadora-widget .cz-close {
+  cursor: pointer;
+  opacity: 0.75;
+  font-size: 15px;
+  line-height: 1;
+  padding: 2px 4px;
+}
+
+#cazadora-widget .cz-close:hover { opacity: 1; }
+
+/* Línea de perforación, como el borde de un resguardo de tique */
+#cazadora-widget .cz-perforation {
+  height: 0;
+  border-top: 1.5px dashed var(--cz-sage);
+  margin: 0 14px;
+}
+
+#cazadora-widget .cz-body {
+  padding: 14px;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+#cazadora-widget .cz-message strong {
+  color: var(--cz-green-dark);
+}
+
+#cazadora-widget .cz-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+#cazadora-widget button.cz-btn {
+  flex: 1;
+  border: none;
+  border-radius: 8px;
+  padding: 9px 10px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.12s ease, background 0.12s ease;
+  font-family: inherit;
+}
+
+#cazadora-widget button.cz-btn:active { transform: scale(0.97); }
+
+#cazadora-widget button.cz-btn.primary {
+  background: var(--cz-gold);
+  color: var(--cz-green-dark);
+}
+
+#cazadora-widget button.cz-btn.primary:hover { background: #c99a2a; }
+
+#cazadora-widget button.cz-btn.primary:disabled {
+  opacity: 0.6;
+  cursor: default;
+  transform: none;
+}
+
+#cazadora-widget button.cz-btn.secondary {
+  background: transparent;
+  color: var(--cz-green-dark);
+  border: 1.5px solid var(--cz-sage);
+}
+
+#cazadora-widget button.cz-btn.secondary:hover { background: rgba(31, 92, 69, 0.06); }
+
+#cazadora-widget .cz-status {
+  margin-top: 11px;
+  font-size: 12.5px;
+  color: var(--cz-green-dark);
+  min-height: 16px;
+  line-height: 1.4;
+}
+
+/* --- Radar de precios: aviso flotante independiente, arriba a la derecha --- */
+
+#cazadora-price-radar {
+  --cz-ink: #17261f;
+  --cz-paper: #faf6ec;
+  --cz-green: #1f5c45;
+  --cz-green-dark: #143c2e;
+  --cz-gold: #d9a62e;
+  --cz-sage: #c9d6c9;
+  --cz-warn: #a15b12;
+  --cz-warn-bg: #fbeedd;
+
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 2147483647;
+  max-width: 300px;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 12.5px;
+  line-height: 1.4;
+  box-shadow: 0 10px 26px rgba(20, 35, 25, 0.22);
+  animation: cz-rise-in 0.32s cubic-bezier(0.2, 0.8, 0.3, 1);
+}
+
+#cazadora-price-radar.cz-pr-up {
+  background: var(--cz-warn-bg);
+  color: var(--cz-warn);
+  border: 1.5px solid #e8c799;
+}
+
+#cazadora-price-radar.cz-pr-low {
+  background: var(--cz-paper);
+  color: var(--cz-green-dark);
+  border: 1.5px solid var(--cz-sage);
+  border-left: 4px solid var(--cz-green);
+}
+
+#cazadora-price-radar.cz-pr-cheaper-elsewhere {
+  background: var(--cz-paper);
+  color: var(--cz-green-dark);
+  border: 1.5px solid var(--cz-gold);
+  border-left: 4px solid var(--cz-gold);
+}
+
+#cazadora-price-radar .cz-pr-icon { font-size: 15px; line-height: 1.3; }
+
+#cazadora-price-radar .cz-pr-message { flex: 1; }
+
+#cazadora-price-radar .cz-pr-close {
+  cursor: pointer;
+  opacity: 0.6;
+  font-size: 12px;
+  line-height: 1.3;
+}
+
+#cazadora-price-radar .cz-pr-close:hover { opacity: 1; }

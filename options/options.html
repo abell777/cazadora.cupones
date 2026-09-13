@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title data-i18n="optionsTitle">Ajustes — Cazadora de Cupones</title>
+  <link rel="stylesheet" href="options.css" />
+</head>
+<body>
+  <header class="cz-header">
+    <span class="cz-logo" data-i18n="widgetBrand">🎟️ Cazadora de Cupones</span>
+  </header>
+
+  <main>
+    <section>
+      <h2 data-i18n="optionsStatusSectionTitle">Estado</h2>
+      <div class="cz-status-row">
+        <span class="cz-status-label" data-i18n="optionsStatusBackendLabel">Backend compartido</span>
+        <span class="cz-status-value" id="cz-status-backend">…</span>
+      </div>
+      <div class="cz-status-row">
+        <span class="cz-status-label" data-i18n="optionsStatusAffiliateLabel">Tiendas con comisión de afiliado</span>
+        <span class="cz-status-value" id="cz-status-affiliates">…</span>
+      </div>
+    </section>
+
+    <section>
+      <h2 data-i18n="optionsPrivacySectionTitle">Privacidad</h2>
+      <label class="cz-toggle-row" for="cz-affiliate-toggle">
+        <span class="cz-toggle-text">
+          <span class="cz-toggle-label" data-i18n="optionsAffiliateToggleLabel">Permitir el sellado de afiliado en tiendas colaboradoras</span>
+          <span class="cz-toggle-body" data-i18n="optionsAffiliateToggleBody">Cuando está activo…</span>
+        </span>
+        <span class="cz-switch">
+          <input type="checkbox" id="cz-affiliate-toggle" />
+          <span class="cz-switch-track"><span class="cz-switch-thumb"></span></span>
+        </span>
+      </label>
+
+      <label class="cz-toggle-row cz-toggle-row-spaced" for="cz-price-radar-toggle">
+        <span class="cz-toggle-text">
+          <span class="cz-toggle-label" data-i18n="optionsPriceRadarToggleLabel">Activar el radar de precios</span>
+          <span class="cz-toggle-body" data-i18n="optionsPriceRadarToggleBody">Cuando está activo…</span>
+        </span>
+        <span class="cz-switch">
+          <input type="checkbox" id="cz-price-radar-toggle" />
+          <span class="cz-switch-track"><span class="cz-switch-thumb"></span></span>
+        </span>
+      </label>
+    </section>
+
+    <section>
+      <h2 data-i18n="optionsDataSectionTitle">Tus datos</h2>
+      <p class="cz-hint" data-i18n="optionsClearDataBody">Elimina los cupones que hayas aportado tú…</p>
+      <button id="cz-clear-data" class="cz-btn secondary" data-i18n="optionsClearDataButton">Borrar datos locales</button>
+      <p class="cz-confirm" id="cz-clear-done" hidden data-i18n="optionsClearDataDone"></p>
+    </section>
+
+    <footer>
+      <a id="cz-privacy-link" href="../legal/privacy-policy.html" target="_blank" rel="noopener" data-i18n="optionsPrivacyPolicyLink">Ver política de privacidad completa</a>
+      <span class="cz-saved-note" data-i18n="optionsSavedNote">Los cambios se guardan automáticamente.</span>
+    </footer>
+  </main>
+
+  <script src="options.js"></script>
+</body>
+</html>

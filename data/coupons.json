@@ -1,0 +1,15 @@
+{
+  "cecotec.es": [
+    { "code": "CECOBIENVENIDA", "desc": "Descuento de bienvenida", "source": "seed" },
+    { "code": "CECOTEC10", "desc": "10% en selección de productos", "source": "seed" }
+  ],
+  "pccomponentes.com": [
+    { "code": "PCCOMP5", "desc": "5€ de descuento en tu pedido", "source": "seed" }
+  ],
+  "perfumesclub.com": [
+    { "code": "PERFUME10", "desc": "10% en primera compra", "source": "seed" }
+  ],
+  "booking.com": [
+    { "code": "BOOKING5", "desc": "5% en reservas seleccionadas", "source": "seed" }
+  ]
+}
