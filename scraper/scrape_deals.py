@@ -45,7 +45,7 @@ import requests
 from bs4 import BeautifulSoup
 
 ANTHROPIC_API_URL = "https://api.anthropic.com/v1/messages"
-ANTHROPIC_MODEL = "claude-sonnet-4-6"
+ANTHROPIC_MODEL = "claude-sonnet-5"
 
 EXTRACTION_PROMPT = """Eres un extractor de datos, no un asistente conversacional. Te paso el texto de un mensaje público de un canal de chollos/cupones en español. Tu única tarea es decidir si contiene un código de cupón REAL y utilizable, y si es así extraer sus datos.
 
@@ -168,7 +168,13 @@ def extract_coupon_from_text(text, api_key):
         ).strip()
         raw = re.sub(r"^```(json)?|```$", "", raw.strip(), flags=re.MULTILINE).strip()
         return json.loads(raw)
-    except (requests.RequestException, json.JSONDecodeError, KeyError) as e:
+    except requests.RequestException as e:
+        detail = ""
+        if e.response is not None:
+            detail = f" — respuesta de la API: {e.response.text[:300]}"
+        log(f"  fallo al extraer con el modelo: {e}{detail}")
+        return {"has_coupon": False}
+    except (json.JSONDecodeError, KeyError) as e:
         log(f"  fallo al extraer con el modelo: {e}")
         return {"has_coupon": False}
 
