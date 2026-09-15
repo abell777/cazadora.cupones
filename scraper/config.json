@@ -16,6 +16,6 @@
   "messages_per_channel": 30,
   "request_delay_seconds": 2,
 
-  "auto_approve_confidence_threshold": null,
+  "auto_approve_confidence_threshold": 0.9,
   "_nota_auto_approve": "Déjalo en null para que TODO pase por tu revisión manual en Supabase (recomendado al empezar). Si más adelante confías en la calidad, puedes poner ej. 0.95 para que solo se aprueben solos los cupones en los que el modelo esté casi seguro."
 }
