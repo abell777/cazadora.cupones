@@ -85,23 +85,48 @@
     }
   }
 
-  async function init() {
+  // Muchos checkouts (Cecotec incluido) renderizan el campo de cupón con
+  // JavaScript DESPUÉS del evento "load" (llamadas a su API interna, carrito
+  // SPA, etc.), así que una única comprobación a los 800ms puede llegar
+  // demasiado pronto y no encontrar nada. En vez de eso, vigilamos la página
+  // de forma continua: primero por cambios reales en el DOM (MutationObserver,
+  // reacciona al instante) y con un sondeo de refuerzo cada 1.5s durante un
+  // rato por si el cambio no dispara el observer (por ejemplo si el campo se
+  // rellena dentro de un <iframe> o un Shadow DOM cerrado que no podemos ver).
+  const POLL_INTERVAL_MS = 1500;
+  const POLL_TIMEOUT_MS = 30000;
+  const MUTATION_DEBOUNCE_MS = 400;
+
+  let currentUrl = window.location.href;
+  let shownForUrl = null; // evita mostrar el aviso más de una vez para la misma URL
+  let pollTimer = null;
+  let pollDeadline = 0;
+  let mutationDebounceTimer = null;
+
+  function stopPolling() {
+    if (pollTimer) {
+      clearInterval(pollTimer);
+      pollTimer = null;
+    }
+  }
+
+  function attemptDetect() {
     if (!window.CazadoraDetector || !window.CazadoraWidget) return;
-
-    const domain = getDomain();
-
-    // Sellado de afiliado: se intenta en cualquier página de la tienda, no solo
-    // en el carrito, para maximizar que la cookie de la red esté puesta cuando
-    // el usuario acabe comprando. No tiene ningún efecto visible.
-    chrome.runtime.sendMessage({
-      type: "MAYBE_TAG_AFFILIATE",
-      domain,
-      pageUrl: window.location.href
-    });
+    if (shownForUrl === window.location.href) {
+      stopPolling();
+      return;
+    }
 
     const { isCartPage, couponInput, applyButton } = window.CazadoraDetector.detect();
-    if (!isCartPage || !couponInput) return;
+    if (!isCartPage || !couponInput) {
+      if (Date.now() > pollDeadline) stopPolling(); // nos rendimos tras 30s, no seguimos mirando para siempre
+      return;
+    }
 
+    stopPolling();
+    shownForUrl = window.location.href;
+
+    const domain = getDomain();
     chrome.runtime.sendMessage(
       { type: "GET_COUPONS_FOR_DOMAIN", domain },
       (response) => {
@@ -118,10 +143,66 @@
     );
   }
 
-  // Espera a que la página esté razonablemente asentada (SPA-friendly: reintento simple)
+  function startWatching() {
+    pollDeadline = Date.now() + POLL_TIMEOUT_MS;
+    attemptDetect();
+    if (shownForUrl === window.location.href) return; // ya lo encontró al primer intento
+    pollTimer = setInterval(attemptDetect, POLL_INTERVAL_MS);
+  }
+
+  function onDomMutated() {
+    clearTimeout(mutationDebounceTimer);
+    mutationDebounceTimer = setTimeout(attemptDetect, MUTATION_DEBOUNCE_MS);
+  }
+
+  function tagAffiliateForCurrentPage() {
+    // Sellado de afiliado: se intenta en cualquier página de la tienda, no solo
+    // en el carrito, para maximizar que la cookie de la red esté puesta cuando
+    // el usuario acabe comprando. No tiene ningún efecto visible.
+    chrome.runtime.sendMessage({
+      type: "MAYBE_TAG_AFFILIATE",
+      domain: getDomain(),
+      pageUrl: window.location.href
+    });
+  }
+
+  function handlePossibleNavigation() {
+    if (window.location.href === currentUrl) return;
+    currentUrl = window.location.href;
+    shownForUrl = null; // nueva página: puede que ahora sí sea el carrito
+    tagAffiliateForCurrentPage();
+    startWatching();
+  }
+
+  // Muchas tiendas (Zara, Cecotec incluidas en parte de su flujo) navegan del
+  // catálogo/producto al carrito sin recargar la página entera (SPA), así que
+  // "load" no vuelve a dispararse. Detectamos esos cambios de ruta enganchando
+  // pushState/replaceState (los usa el router de la SPA) y "popstate" (botón
+  // atrás/adelante del navegador).
+  ["pushState", "replaceState"].forEach((method) => {
+    const original = history[method];
+    history[method] = function (...args) {
+      const result = original.apply(this, args);
+      handlePossibleNavigation();
+      return result;
+    };
+  });
+  window.addEventListener("popstate", handlePossibleNavigation);
+
+  function init() {
+    if (!window.CazadoraDetector || !window.CazadoraWidget) return;
+    tagAffiliateForCurrentPage();
+    startWatching();
+
+    new MutationObserver(onDomMutated).observe(document.documentElement, {
+      childList: true,
+      subtree: true
+    });
+  }
+
   if (document.readyState === "complete") {
-    setTimeout(init, 800);
+    setTimeout(init, 500);
   } else {
-    window.addEventListener("load", () => setTimeout(init, 800));
+    window.addEventListener("load", () => setTimeout(init, 500));
   }
 })();

@@ -37,8 +37,31 @@ async function loadAffiliateConfig() {
   return affiliateConfig;
 }
 
+// Lista corta de sufijos de segundo nivel habituales (ccTLD tipo .co.uk,
+// .com.br...) para no confundir "co" o "com" con el nombre real de la
+// tienda al calcular el dominio base. No es exhaustiva (no existe una lista
+// corta que lo sea de verdad sin tirar de la Public Suffix List completa),
+// pero cubre los mercados que le importan a este proyecto.
+const SECOND_LEVEL_SUFFIXES = new Set([
+  "co.uk", "org.uk", "net.uk", "co.jp", "co.kr", "co.in", "co.nz", "co.za",
+  "com.br", "com.mx", "com.ar", "com.co", "com.au", "com.tr", "com.pe",
+  "com.ec", "com.uy", "com.sg", "com.hk", "com.tw"
+]);
+
+// Normaliza un hostname (p. ej. "secure.booking.com" o
+// "www.checkout.tienda.co.uk") al dominio "base" bajo el que este proyecto
+// guarda sus cupones ("booking.com", "tienda.co.uk") — así un checkout en un
+// subdominio (secure., checkout., pay...) encuentra los mismos cupones que
+// el dominio principal, sin tener que duplicar cada tienda por subdominio.
 function normalizeDomain(domain) {
-  return (domain || "").toLowerCase().replace(/^www\./, "");
+  const hostname = (domain || "").toLowerCase().replace(/^www\./, "");
+  const labels = hostname.split(".").filter(Boolean);
+  if (labels.length <= 2) return hostname;
+
+  const lastTwo = labels.slice(-2).join(".");
+  const lastThree = labels.slice(-3).join(".");
+  if (SECOND_LEVEL_SUFFIXES.has(lastTwo)) return lastThree;
+  return lastTwo;
 }
 
 // --- Validación anti-spam (misma forma que los CHECK de schema-moderation.sql) ---

@@ -25,8 +25,24 @@ function localizeDocument() {
   });
 }
 
+// Misma lógica que normalizeDomain() en background/background.js — duplicada
+// aquí porque el popup no comparte módulos con el service worker. Si se
+// cambia una, cambiar la otra.
+const SECOND_LEVEL_SUFFIXES = new Set([
+  "co.uk", "org.uk", "net.uk", "co.jp", "co.kr", "co.in", "co.nz", "co.za",
+  "com.br", "com.mx", "com.ar", "com.co", "com.au", "com.tr", "com.pe",
+  "com.ec", "com.uy", "com.sg", "com.hk", "com.tw"
+]);
+
 function normalizeDomain(hostname) {
-  return (hostname || "").toLowerCase().replace(/^www\./, "");
+  const clean = (hostname || "").toLowerCase().replace(/^www\./, "");
+  const labels = clean.split(".").filter(Boolean);
+  if (labels.length <= 2) return clean;
+
+  const lastTwo = labels.slice(-2).join(".");
+  const lastThree = labels.slice(-3).join(".");
+  if (SECOND_LEVEL_SUFFIXES.has(lastTwo)) return lastThree;
+  return lastTwo;
 }
 
 function renderCoupons(coupons) {
