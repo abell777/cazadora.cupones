@@ -218,6 +218,8 @@ def insert_coupon(supabase_url, service_key, domain, code, description, confiden
         },
         timeout=15,
     )
+    if not res.ok:
+        log(f"    Supabase respondió {res.status_code}: {res.text[:300]}")
     return res.ok, status
 
 
