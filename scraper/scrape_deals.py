@@ -230,7 +230,9 @@ def main():
     args = parser.parse_args()
 
     config = load_config(args.config)
-    supabase_url = require_env("SUPABASE_URL")
+    supabase_url = require_env("SUPABASE_URL").rstrip("/")
+    if supabase_url.endswith("/rest/v1"):
+        supabase_url = supabase_url[: -len("/rest/v1")]
     service_key = require_env("SUPABASE_SERVICE_ROLE_KEY")
     anthropic_key = require_env("ANTHROPIC_API_KEY")
 
