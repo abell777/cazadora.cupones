@@ -2,7 +2,7 @@
   "_comentario": "Copia este archivo como config.json y edítalo. NO metas aquí ninguna clave secreta (esas van como variables de entorno: SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, ANTHROPIC_API_KEY).",
 
   "telegram_channels": [
-    "cholloschina", "nolodejesescapar", "TopDescuentosHoy", "chollosecuponesES", "chollosamzesp", "chollo_es_2", "liquidazone", "ofertasgangasespana", "cupones", "ayemarket", "ofertaszone", "Oferton_Es", "Chollos3D", "UCupones", "lorochollo", "CuponesdeAliexpress", "ProYectCarding", "cholloterapia", "chollosycupones", "Chollos", "holidayguruES", "ofertas3939", "TusComprasRETRO", "chollosdeluxe", "Foxby", "chollos2", "chollosA"
+    "cholloschina", "nolodejesescapar", "TopDescuentosHoy", "chollosecuponesES", "chollosamzesp", "chollo_es_2", "liquidazone", "ofertasgangasespana", "cupones", "ayemarket", "ofertaszone", "Oferton_Es", "Chollos3D", "UCupones", "lorochollo", "CuponesdeAliexpress", "cholloterapia", "chollosycupones", "Chollos", "holidayguruES", "ofertas3939", "TusComprasRETRO", "chollosdeluxe", "Foxby", "chollos2", "chollosA"
   ],
 
   "forum_pages": [
