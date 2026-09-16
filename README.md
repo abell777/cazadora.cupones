@@ -1,4 +1,12 @@
-# Cazadora de Cupones y Chollos Reales (MVP v0.13.2)
+# Cazadora de Cupones y Chollos Reales (MVP v0.13.3)
+
+## Cambios en este paso (v0.13.2 → v0.13.3): rechazo de Chrome Web Store por permiso sin usar
+
+Chrome rechazó el envío por pedir el permiso `scripting` en el manifiesto
+sin usarlo en ningún sitio del código (la extensión rellena el cupón desde
+el content script normal, que ya se inyecta solo — nunca necesitó la API
+dinámica `chrome.scripting`). Se quita ese permiso del manifiesto. No
+cambia ninguna funcionalidad.
 
 ## Cambios en este paso (v0.13.1 → v0.13.2): bug crítico — checkouts en subdominio (Booking.com y similares) no encontraban sus cupones
 
