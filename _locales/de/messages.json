@@ -1,78 +1,233 @@
 {
-  "appName": { "message": "Cazadora de Cupones" },
-  "appDescription": { "message": "Findet und testet automatisch echte Rabattcodes an der Kasse von Online-Shops." },
-
-  "widgetBrand": { "message": "🎟️ Cazadora de Cupones" },
-  "widgetCloseTitle": { "message": "Schließen" },
-  "widgetMessage": { "message": "Wir haben <strong>%COUPONS%</strong> für diesen Shop gespeichert. Wir können sie jetzt gleich testen." },
-  "couponCountSingular": { "message": "1 Gutschein" },
-  "couponCountPlural": { "message": "%COUNT% Gutscheine" },
-  "widgetApplyButton": { "message": "Codes testen" },
-  "widgetDismissButton": { "message": "Jetzt nicht" },
-
-  "statusTryingCode": { "message": "Teste Code %INDEX%/%TOTAL%: %CODE%…" },
-  "statusBestCode": { "message": "✅ Bester Code: %CODE%. Du sparst ca. %AMOUNT% gegenüber dem ursprünglichen Preis." },
-  "statusApplied": { "message": "Wir haben den Code %CODE% angewendet. Prüfe den Rabatt in deinem Warenkorb." },
-  "statusNoConfirm": { "message": "Wir haben %COUNT% Code(s) getestet, konnten die Ersparnis aber nicht automatisch bestätigen. Bitte prüfe deinen Warenkorb." },
-
-  "popupTitle": { "message": "Cazadora de Cupones" },
-  "popupDetectingStore": { "message": "Shop wird erkannt…" },
-  "popupNoStoreDetected": { "message": "Der aktuelle Shop konnte nicht erkannt werden." },
-  "popupCurrentStore": { "message": "Aktueller Shop: %DOMAIN%" },
-  "popupCouponsSectionTitle": { "message": "Gutscheine für diesen Shop" },
-  "popupSearchingCoupons": { "message": "Gutscheine werden gesucht…" },
-  "popupEmptyCoupons": { "message": "Für diesen Shop haben wir noch keine Gutscheine. Sei der Erste, der einen hinzufügt!" },
-  "popupAddSectionTitle": { "message": "Kennst du einen Code, der hier funktioniert?" },
-  "popupCodePlaceholder": { "message": "Code (z. B. SOMMER10)" },
-  "popupDescPlaceholder": { "message": "Beschreibung (optional)" },
-  "popupAddButton": { "message": "Gutschein hinzufügen" },
-  "popupHintShared": { "message": "Dein Gutschein wird mit den anderen Nutzern der Erweiterung geteilt." },
-  "popupHintLocal": { "message": "Momentan wird er nur in deinem Browser gespeichert (gemeinsames Backend noch nicht konfiguriert)." },
-
-  "popupErrorInvalidCode": { "message": "Dieser Code sieht nicht korrekt aus — verwende nur Buchstaben, Zahlen, Leerzeichen oder Bindestriche (2–40 Zeichen)." },
-  "popupErrorInvalidDesc": { "message": "Die Beschreibung darf nicht länger als 140 Zeichen sein und keine Links enthalten." },
-  "popupErrorRateLimited": { "message": "Du hast in kurzer Zeit mehrere Gutscheine hinzugefügt — versuche es später noch einmal." },
-  "popupErrorGeneric": { "message": "Der Gutschein konnte nicht gespeichert werden, versuche es gleich noch einmal." },
-
-  "popupSettingsTitle": { "message": "Einstellungen" },
-
-  "onboardingTitle": { "message": "Willkommen bei Cazadora de Cupones" },
-  "onboardingIntro": { "message": "Testet automatisch echte Rabattcodes, sobald du im Warenkorb eines Online-Shops landest. So funktioniert es:" },
-  "onboardingStep1Title": { "message": "1. Zum Warenkorb gelangen" },
-  "onboardingStep1Body": { "message": "Kaufe wie gewohnt ein. Sobald du auf der Warenkorb- oder Kassenseite eines Shops landest, erkennt die Erweiterung das automatisch." },
-  "onboardingStep2Title": { "message": "2. Hinweis erscheint" },
-  "onboardingStep2Body": { "message": "Wenn wir Gutscheine für diesen Shop gespeichert haben, erscheint ein kleiner Hinweis. Tippe auf „Codes testen“." },
-  "onboardingStep3Title": { "message": "3. Der beste Code bleibt aktiv" },
-  "onboardingStep3Body": { "message": "Die Erweiterung testet jeden Code im Hintergrund und lässt den mit dem größten Rabatt aktiv, und zeigt dir, wie viel du gespart hast." },
-  "onboardingTransparencyTitle": { "message": "So finanziert es sich" },
-  "onboardingTransparencyBody": { "message": "In Shops mit Partnerprogramm wird durch die Nutzung der Erweiterung dein Besuch zu unseren Gunsten erfasst — ohne zusätzliche Kosten für dich, der Preis, den du zahlst, ändert sich nie. Du kannst das jederzeit in den Einstellungen deaktivieren." },
-  "onboardingPrivacyLink": { "message": "Datenschutzerklärung lesen" },
-  "onboardingSettingsLink": { "message": "Einstellungen öffnen" },
-  "onboardingCta": { "message": "Verstanden, auf zu den Schnäppchen!" },
-
-  "optionsTitle": { "message": "Einstellungen — Cazadora de Cupones" },
-  "optionsStatusSectionTitle": { "message": "Status" },
-  "optionsStatusBackendLabel": { "message": "Gemeinsames Backend" },
-  "optionsStatusBackendOn": { "message": "Aktiv — deine Gutscheine werden mit der Community geteilt" },
-  "optionsStatusBackendOff": { "message": "Inaktiv — hinzugefügte Gutscheine werden nur in diesem Browser gespeichert" },
-  "optionsStatusAffiliateLabel": { "message": "Shops mit Affiliate-Provision" },
-  "optionsStatusAffiliateCount": { "message": "%COUNT% Shop(s) konfiguriert" },
-  "optionsPrivacySectionTitle": { "message": "Datenschutz" },
-  "optionsAffiliateToggleLabel": { "message": "Affiliate-Kennzeichnung bei Partner-Shops erlauben" },
-  "optionsAffiliateToggleBody": { "message": "Wenn aktiviert, wird beim Besuch eines Shops mit konfiguriertem Partnerprogramm der Besuch im Hintergrund zu unseren Gunsten erfasst (keine Weiterleitung, keine Preisänderung). Deaktiviere dies, wenn die Erweiterung ausschließlich als Gutschein-Finder arbeiten soll." },
-  "optionsDataSectionTitle": { "message": "Deine Daten" },
-  "optionsClearDataLabel": { "message": "In diesem Browser gespeicherte Daten löschen" },
-  "optionsClearDataBody": { "message": "Entfernt die von dir hinzugefügten Gutscheine und die nur lokal gespeicherte Preishistorie (betrifft nicht die von der Community geteilten Daten)." },
-  "optionsClearDataButton": { "message": "Lokale Daten löschen" },
-  "optionsClearDataConfirm": { "message": "Möchtest du deine lokal gespeicherten Daten (Gutscheine und Preishistorie) wirklich löschen? Dies kann nicht rückgängig gemacht werden." },
-  "optionsClearDataDone": { "message": "Fertig — deine lokalen Daten wurden gelöscht." },
-  "optionsPrivacyPolicyLink": { "message": "Vollständige Datenschutzerklärung ansehen" },
-  "optionsSavedNote": { "message": "Änderungen werden automatisch gespeichert." },
-
-  "optionsPriceRadarToggleLabel": { "message": "Preisradar aktivieren" },
-  "optionsPriceRadarToggleBody": { "message": "Wenn aktiviert, wird beim Besuch einer Produktseite deren Preis erfasst (lokal und, falls konfiguriert, auch in der gemeinsamen Datenbank), damit wir dich warnen können, wenn er vor einem Angebot gestiegen ist, wenn es der niedrigste kürzlich gesehene Preis ist, oder wenn dasselbe Produkt in einem anderen Shop günstiger ist (wenn die Seite einen Barcode oder Marke+Artikelnummer angibt). Wir speichern den Preis, die Produktseite und, falls vorhanden, diesen Code oder diese Marke+Artikelnummer — niemals persönliche Daten." },
-
-  "priceRadarUpMessage": { "message": "Dieses Produkt ist in den letzten 30 Tagen um ca. %PERCENT%% gestiegen (vorher: %PRICE%). Der Gutschein kaschiert möglicherweise nur diesen Anstieg." },
-  "priceRadarLowMessage": { "message": "Das ist der niedrigste Preis, den wir für dieses Produkt in den letzten 30 Tagen gesehen haben." },
-  "priceRadarCheaperElsewhereMessage": { "message": "Dasselbe Produkt ist bei %STORE% ca. %PERCENT%% günstiger." }
+  "appName": {
+    "message": "Cazadora de Cupones"
+  },
+  "appDescription": {
+    "message": "Findet und testet automatisch echte Rabattcodes an der Kasse von Online-Shops. Verwendet Affiliate-Links bei Partner-Shops: Kaufst du darüber ein, erhalten wir möglicherweise eine Provision – ohne Mehrkosten für dich."
+  },
+  "widgetBrand": {
+    "message": "🎟️ Cazadora de Cupones"
+  },
+  "widgetCloseTitle": {
+    "message": "Schließen"
+  },
+  "widgetMessage": {
+    "message": "Wir haben <strong>%COUPONS%</strong> für diesen Shop gespeichert. Wir können sie jetzt gleich testen."
+  },
+  "couponCountSingular": {
+    "message": "1 Gutschein"
+  },
+  "couponCountPlural": {
+    "message": "%COUNT% Gutscheine"
+  },
+  "widgetApplyButton": {
+    "message": "Codes testen"
+  },
+  "widgetDismissButton": {
+    "message": "Jetzt nicht"
+  },
+  "statusTryingCode": {
+    "message": "Teste Code %INDEX%/%TOTAL%: %CODE%…"
+  },
+  "statusBestCode": {
+    "message": "✅ Bester Code: %CODE%. Du sparst ca. %AMOUNT% gegenüber dem ursprünglichen Preis."
+  },
+  "statusApplied": {
+    "message": "Wir haben den Code %CODE% angewendet. Prüfe den Rabatt in deinem Warenkorb."
+  },
+  "statusNoConfirm": {
+    "message": "Wir haben %COUNT% Code(s) getestet, konnten die Ersparnis aber nicht automatisch bestätigen. Bitte prüfe deinen Warenkorb."
+  },
+  "popupTitle": {
+    "message": "Cazadora de Cupones"
+  },
+  "popupDetectingStore": {
+    "message": "Shop wird erkannt…"
+  },
+  "popupNoStoreDetected": {
+    "message": "Der aktuelle Shop konnte nicht erkannt werden."
+  },
+  "popupCurrentStore": {
+    "message": "Aktueller Shop: %DOMAIN%"
+  },
+  "popupCouponsSectionTitle": {
+    "message": "Gutscheine für diesen Shop"
+  },
+  "popupSearchingCoupons": {
+    "message": "Gutscheine werden gesucht…"
+  },
+  "popupEmptyCoupons": {
+    "message": "Für diesen Shop haben wir noch keine Gutscheine. Sei der Erste, der einen hinzufügt!"
+  },
+  "popupAddSectionTitle": {
+    "message": "Kennst du einen Code, der hier funktioniert?"
+  },
+  "popupCodePlaceholder": {
+    "message": "Code (z. B. SOMMER10)"
+  },
+  "popupDescPlaceholder": {
+    "message": "Beschreibung (optional)"
+  },
+  "popupAddButton": {
+    "message": "Gutschein hinzufügen"
+  },
+  "popupHintShared": {
+    "message": "Dein Gutschein wird mit den anderen Nutzern der Erweiterung geteilt."
+  },
+  "popupHintLocal": {
+    "message": "Momentan wird er nur in deinem Browser gespeichert (gemeinsames Backend noch nicht konfiguriert)."
+  },
+  "popupErrorInvalidCode": {
+    "message": "Dieser Code sieht nicht korrekt aus — verwende nur Buchstaben, Zahlen, Leerzeichen oder Bindestriche (2–40 Zeichen)."
+  },
+  "popupErrorInvalidDesc": {
+    "message": "Die Beschreibung darf nicht länger als 140 Zeichen sein und keine Links enthalten."
+  },
+  "popupErrorRateLimited": {
+    "message": "Du hast in kurzer Zeit mehrere Gutscheine hinzugefügt — versuche es später noch einmal."
+  },
+  "popupErrorGeneric": {
+    "message": "Der Gutschein konnte nicht gespeichert werden, versuche es gleich noch einmal."
+  },
+  "popupSettingsTitle": {
+    "message": "Einstellungen"
+  },
+  "onboardingTitle": {
+    "message": "Willkommen bei Cazadora de Cupones"
+  },
+  "onboardingIntro": {
+    "message": "Testet automatisch echte Rabattcodes, sobald du im Warenkorb eines Online-Shops landest. So funktioniert es:"
+  },
+  "onboardingStep1Title": {
+    "message": "1. Zum Warenkorb gelangen"
+  },
+  "onboardingStep1Body": {
+    "message": "Kaufe wie gewohnt ein. Sobald du auf der Warenkorb- oder Kassenseite eines Shops landest, erkennt die Erweiterung das automatisch."
+  },
+  "onboardingStep2Title": {
+    "message": "2. Hinweis erscheint"
+  },
+  "onboardingStep2Body": {
+    "message": "Wenn wir Gutscheine für diesen Shop gespeichert haben, erscheint ein kleiner Hinweis. Tippe auf „Codes testen“."
+  },
+  "onboardingStep3Title": {
+    "message": "3. Der beste Code bleibt aktiv"
+  },
+  "onboardingStep3Body": {
+    "message": "Die Erweiterung testet jeden Code im Hintergrund und lässt den mit dem größten Rabatt aktiv, und zeigt dir, wie viel du gespart hast."
+  },
+  "onboardingTransparencyTitle": {
+    "message": "So finanziert es sich"
+  },
+  "onboardingTransparencyBody": {
+    "message": "In Shops mit Partnerprogramm wird durch die Nutzung der Erweiterung dein Besuch zu unseren Gunsten erfasst — ohne zusätzliche Kosten für dich, der Preis, den du zahlst, ändert sich nie. Du kannst das jederzeit in den Einstellungen deaktivieren."
+  },
+  "onboardingPrivacyLink": {
+    "message": "Datenschutzerklärung lesen"
+  },
+  "onboardingSettingsLink": {
+    "message": "Einstellungen öffnen"
+  },
+  "onboardingCta": {
+    "message": "Verstanden, auf zu den Schnäppchen!"
+  },
+  "optionsTitle": {
+    "message": "Einstellungen — Cazadora de Cupones"
+  },
+  "optionsStatusSectionTitle": {
+    "message": "Status"
+  },
+  "optionsStatusBackendLabel": {
+    "message": "Gemeinsames Backend"
+  },
+  "optionsStatusBackendOn": {
+    "message": "Aktiv — deine Gutscheine werden mit der Community geteilt"
+  },
+  "optionsStatusBackendOff": {
+    "message": "Inaktiv — hinzugefügte Gutscheine werden nur in diesem Browser gespeichert"
+  },
+  "optionsStatusAffiliateLabel": {
+    "message": "Shops mit Affiliate-Provision"
+  },
+  "optionsStatusAffiliateCount": {
+    "message": "%COUNT% Shop(s) konfiguriert"
+  },
+  "optionsPrivacySectionTitle": {
+    "message": "Datenschutz"
+  },
+  "optionsAffiliateToggleLabel": {
+    "message": "Affiliate-Kennzeichnung bei Partner-Shops erlauben"
+  },
+  "optionsAffiliateToggleBody": {
+    "message": "Wenn aktiviert, wird beim Besuch eines Shops mit konfiguriertem Partnerprogramm der Besuch im Hintergrund zu unseren Gunsten erfasst (keine Weiterleitung, keine Preisänderung). Deaktiviere dies, wenn die Erweiterung ausschließlich als Gutschein-Finder arbeiten soll."
+  },
+  "optionsDataSectionTitle": {
+    "message": "Deine Daten"
+  },
+  "optionsClearDataLabel": {
+    "message": "In diesem Browser gespeicherte Daten löschen"
+  },
+  "optionsClearDataBody": {
+    "message": "Entfernt die von dir hinzugefügten Gutscheine und die nur lokal gespeicherte Preishistorie (betrifft nicht die von der Community geteilten Daten)."
+  },
+  "optionsClearDataButton": {
+    "message": "Lokale Daten löschen"
+  },
+  "optionsClearDataConfirm": {
+    "message": "Möchtest du deine lokal gespeicherten Daten (Gutscheine und Preishistorie) wirklich löschen? Dies kann nicht rückgängig gemacht werden."
+  },
+  "optionsClearDataDone": {
+    "message": "Fertig — deine lokalen Daten wurden gelöscht."
+  },
+  "optionsPrivacyPolicyLink": {
+    "message": "Vollständige Datenschutzerklärung ansehen"
+  },
+  "optionsSavedNote": {
+    "message": "Änderungen werden automatisch gespeichert."
+  },
+  "optionsPriceRadarToggleLabel": {
+    "message": "Preisradar aktivieren"
+  },
+  "optionsPriceRadarToggleBody": {
+    "message": "Wenn aktiviert, wird beim Besuch einer Produktseite deren Preis erfasst (lokal und, falls konfiguriert, auch in der gemeinsamen Datenbank), damit wir dich warnen können, wenn er vor einem Angebot gestiegen ist, wenn es der niedrigste kürzlich gesehene Preis ist, oder wenn dasselbe Produkt in einem anderen Shop günstiger ist (wenn die Seite einen Barcode oder Marke+Artikelnummer angibt). Wir speichern den Preis, die Produktseite und, falls vorhanden, diesen Code oder diese Marke+Artikelnummer — niemals persönliche Daten."
+  },
+  "priceRadarUpMessage": {
+    "message": "Dieses Produkt ist in den letzten 30 Tagen um ca. %PERCENT%% gestiegen (vorher: %PRICE%). Der Gutschein kaschiert möglicherweise nur diesen Anstieg."
+  },
+  "priceRadarLowMessage": {
+    "message": "Das ist der niedrigste Preis, den wir für dieses Produkt in den letzten 30 Tagen gesehen haben."
+  },
+  "priceRadarCheaperElsewhereMessage": {
+    "message": "Dasselbe Produkt ist bei %STORE% ca. %PERCENT%% günstiger."
+  },
+  "popupAffiliateNotice": {
+    "message": "🔗 Wir verwenden Affiliate-Links bei Partner-Shops"
+  },
+  "popupAffiliateNoticeLink": {
+    "message": "Mehr erfahren"
+  },
+  "widgetAffiliateNote": {
+    "message": "Kaufst du hier ein, erhalten wir möglicherweise eine Affiliate-Provision — das ändert nie, was du zahlst."
+  },
+  "legalPageTitle": {
+    "message": "Datenschutz & Affiliate-Programme — Cazadora de Cupones"
+  },
+  "legalIntro": {
+    "message": "Cazadora de Cupones findet und testet automatisch Rabattcodes, sobald du im Warenkorb eines Online-Shops bist. Diese Seite erklärt, wie sich die Erweiterung finanziert und welche Daten sie verarbeitet."
+  },
+  "legalAffiliateHeading": {
+    "message": "Affiliate-Links"
+  },
+  "legalAffiliateBody": {
+    "message": "In Shops, in denen wir an einem Affiliate-Programm teilnehmen, meldet die Erweiterung deinen Besuch automatisch beim Partnernetzwerk (z. B. Awin), ohne dich irgendwohin umzuleiten. Kaufst du dort ein, erhalten wir möglicherweise eine kleine Provision vom Shop. Das ändert nie den Preis, den du zahlst, und verursacht keine zusätzlichen Kosten. Du kannst dies jederzeit in den Einstellungen über den Schalter „Affiliate-Kennzeichnung bei Partner-Shops erlauben“ deaktivieren."
+  },
+  "legalDataHeading": {
+    "message": "Welche Daten wir speichern"
+  },
+  "legalDataBody": {
+    "message": "Die von dir beigetragenen Gutscheincodes und, falls du den Preisradar aktivierst, der von dir gesehene Preisverlauf werden in deinem Browser und optional in einem gemeinsamen Backend gespeichert, damit andere Nutzer davon profitieren. Wir verkaufen deine Daten nicht an Dritte. Du kannst deine lokalen Daten jederzeit in den Einstellungen löschen."
+  },
+  "legalBackLink": {
+    "message": "← Zurück zu den Einstellungen"
+  }
 }

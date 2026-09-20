@@ -1,78 +1,233 @@
 {
-  "appName": { "message": "Cazadora de Cupones" },
-  "appDescription": { "message": "Encuentra y prueba automáticamente cupones de descuento reales en tiendas online." },
-
-  "widgetBrand": { "message": "🎟️ Cazadora de Cupones" },
-  "widgetCloseTitle": { "message": "Cerrar" },
-  "widgetMessage": { "message": "Tenemos <strong>%COUPONS%</strong> guardados para esta tienda. Podemos probarlos ahora mismo." },
-  "couponCountSingular": { "message": "1 cupón" },
-  "couponCountPlural": { "message": "%COUNT% cupones" },
-  "widgetApplyButton": { "message": "Probar cupones" },
-  "widgetDismissButton": { "message": "Ahora no" },
-
-  "statusTryingCode": { "message": "Probando código %INDEX%/%TOTAL%: %CODE%…" },
-  "statusBestCode": { "message": "✅ Mejor código: %CODE%. Ahorras aprox. %AMOUNT% respecto al precio inicial." },
-  "statusApplied": { "message": "Hemos aplicado el código %CODE%. Revisa el descuento en tu cesta." },
-  "statusNoConfirm": { "message": "Hemos probado %COUNT% código(s), pero no hemos podido confirmar el ahorro automáticamente. Revisa tu cesta." },
-
-  "popupTitle": { "message": "Cazadora de Cupones" },
-  "popupDetectingStore": { "message": "Detectando tienda…" },
-  "popupNoStoreDetected": { "message": "No se pudo detectar la tienda actual." },
-  "popupCurrentStore": { "message": "Tienda actual: %DOMAIN%" },
-  "popupCouponsSectionTitle": { "message": "Cupones para esta tienda" },
-  "popupSearchingCoupons": { "message": "Buscando cupones…" },
-  "popupEmptyCoupons": { "message": "Todavía no tenemos cupones para esta tienda. ¡Sé el primero en añadir uno!" },
-  "popupAddSectionTitle": { "message": "¿Conoces un código que funcione aquí?" },
-  "popupCodePlaceholder": { "message": "Código (ej. VERANO10)" },
-  "popupDescPlaceholder": { "message": "Descripción (opcional)" },
-  "popupAddButton": { "message": "Añadir cupón" },
-  "popupHintShared": { "message": "Tu cupón se comparte con el resto de usuarios de la extensión." },
-  "popupHintLocal": { "message": "De momento se guarda solo en tu navegador (backend compartido no configurado todavía)." },
-
-  "popupErrorInvalidCode": { "message": "Ese código no es válido: usa solo letras, números, espacios o guiones (2-40 caracteres)." },
-  "popupErrorInvalidDesc": { "message": "La descripción no puede superar los 140 caracteres ni contener enlaces." },
-  "popupErrorRateLimited": { "message": "Has añadido varios cupones en poco tiempo — inténtalo de nuevo un poco más tarde." },
-  "popupErrorGeneric": { "message": "No se pudo guardar el cupón, inténtalo de nuevo en un momento." },
-
-  "popupSettingsTitle": { "message": "Ajustes" },
-
-  "onboardingTitle": { "message": "Bienvenida a Cazadora de Cupones" },
-  "onboardingIntro": { "message": "Prueba automáticamente cupones de descuento reales cuando llegas al carrito de cualquier tienda online. Así es como funciona:" },
-  "onboardingStep1Title": { "message": "1. Llega al carrito" },
-  "onboardingStep1Body": { "message": "Navega y compra como siempre. En cuanto entres en el carrito o el pago de una tienda, la extensión lo detecta sola." },
-  "onboardingStep2Title": { "message": "2. Aparece el aviso" },
-  "onboardingStep2Body": { "message": "Si hay cupones guardados para esa tienda, verás un pequeño aviso flotante. Pulsa \"Probar cupones\"." },
-  "onboardingStep3Title": { "message": "3. Se queda el mejor" },
-  "onboardingStep3Body": { "message": "La extensión prueba cada código en segundo plano y deja aplicado el que más rebaja el precio, mostrándote cuánto ahorras." },
-  "onboardingTransparencyTitle": { "message": "Cómo se financia" },
-  "onboardingTransparencyBody": { "message": "En tiendas donde tenemos programa de afiliados, al usar la extensión se registra tu visita a nuestro favor sin coste añadido para ti — nunca cambia el precio que pagas. Puedes desactivarlo en cualquier momento desde Ajustes." },
-  "onboardingPrivacyLink": { "message": "Leer la política de privacidad" },
-  "onboardingSettingsLink": { "message": "Abrir ajustes" },
-  "onboardingCta": { "message": "Entendido, ¡a por chollos!" },
-
-  "optionsTitle": { "message": "Ajustes — Cazadora de Cupones" },
-  "optionsStatusSectionTitle": { "message": "Estado" },
-  "optionsStatusBackendLabel": { "message": "Backend compartido" },
-  "optionsStatusBackendOn": { "message": "Activo — tus cupones se comparten con la comunidad" },
-  "optionsStatusBackendOff": { "message": "Inactivo — los cupones que añadas se guardan solo en este navegador" },
-  "optionsStatusAffiliateLabel": { "message": "Tiendas con comisión de afiliado" },
-  "optionsStatusAffiliateCount": { "message": "%COUNT% tienda(s) configurada(s)" },
-  "optionsPrivacySectionTitle": { "message": "Privacidad" },
-  "optionsAffiliateToggleLabel": { "message": "Permitir el sellado de afiliado en tiendas colaboradoras" },
-  "optionsAffiliateToggleBody": { "message": "Cuando está activo, al visitar una tienda con programa de afiliados configurado, se registra la visita a nuestro favor en segundo plano (sin redirigirte ni cambiar el precio). Desactívalo si prefieres que la extensión funcione solo como buscador de cupones." },
-  "optionsDataSectionTitle": { "message": "Tus datos" },
-  "optionsClearDataLabel": { "message": "Borrar datos guardados en este navegador" },
-  "optionsClearDataBody": { "message": "Elimina los cupones que hayas aportado tú y el histórico de precios que se guardaron solo localmente (no afecta a lo compartido por la comunidad)." },
-  "optionsClearDataButton": { "message": "Borrar datos locales" },
-  "optionsClearDataConfirm": { "message": "¿Seguro que quieres borrar tus datos guardados localmente (cupones e histórico de precios)? No se puede deshacer." },
-  "optionsClearDataDone": { "message": "Listo, se han borrado tus datos locales." },
-  "optionsPrivacyPolicyLink": { "message": "Ver política de privacidad completa" },
-  "optionsSavedNote": { "message": "Los cambios se guardan automáticamente." },
-
-  "optionsPriceRadarToggleLabel": { "message": "Activar el radar de precios" },
-  "optionsPriceRadarToggleBody": { "message": "Cuando está activo, al visitar la ficha de un producto se registra su precio (localmente, y también en la base de datos compartida si está configurada) para poder avisarte si ha subido antes de una rebaja, si es el precio más bajo visto recientemente, o si el mismo producto está más barato en otra tienda (cuando la propia ficha indica su código de barras o marca+referencia). Se guarda el precio, la página del producto y, si están disponibles, ese código o marca+referencia — nunca datos personales." },
-
-  "priceRadarUpMessage": { "message": "Este producto ha subido ~%PERCENT%% en los últimos 30 días (antes: %PRICE%). El cupón puede estar maquillando la subida." },
-  "priceRadarLowMessage": { "message": "Este es el precio más bajo que hemos visto de este producto en los últimos 30 días." },
-  "priceRadarCheaperElsewhereMessage": { "message": "Este mismo producto está ~%PERCENT%% más barato en %STORE%." }
+  "appName": {
+    "message": "Cazadora de Cupones"
+  },
+  "appDescription": {
+    "message": "Encuentra y prueba automáticamente cupones de descuento reales en tiendas online. Usa enlaces de afiliado en las tiendas colaboradoras: si compras a través de ellos, podemos recibir una comisión sin coste extra para ti."
+  },
+  "widgetBrand": {
+    "message": "🎟️ Cazadora de Cupones"
+  },
+  "widgetCloseTitle": {
+    "message": "Cerrar"
+  },
+  "widgetMessage": {
+    "message": "Tenemos <strong>%COUPONS%</strong> guardados para esta tienda. Podemos probarlos ahora mismo."
+  },
+  "couponCountSingular": {
+    "message": "1 cupón"
+  },
+  "couponCountPlural": {
+    "message": "%COUNT% cupones"
+  },
+  "widgetApplyButton": {
+    "message": "Probar cupones"
+  },
+  "widgetDismissButton": {
+    "message": "Ahora no"
+  },
+  "statusTryingCode": {
+    "message": "Probando código %INDEX%/%TOTAL%: %CODE%…"
+  },
+  "statusBestCode": {
+    "message": "✅ Mejor código: %CODE%. Ahorras aprox. %AMOUNT% respecto al precio inicial."
+  },
+  "statusApplied": {
+    "message": "Hemos aplicado el código %CODE%. Revisa el descuento en tu cesta."
+  },
+  "statusNoConfirm": {
+    "message": "Hemos probado %COUNT% código(s), pero no hemos podido confirmar el ahorro automáticamente. Revisa tu cesta."
+  },
+  "popupTitle": {
+    "message": "Cazadora de Cupones"
+  },
+  "popupDetectingStore": {
+    "message": "Detectando tienda…"
+  },
+  "popupNoStoreDetected": {
+    "message": "No se pudo detectar la tienda actual."
+  },
+  "popupCurrentStore": {
+    "message": "Tienda actual: %DOMAIN%"
+  },
+  "popupCouponsSectionTitle": {
+    "message": "Cupones para esta tienda"
+  },
+  "popupSearchingCoupons": {
+    "message": "Buscando cupones…"
+  },
+  "popupEmptyCoupons": {
+    "message": "Todavía no tenemos cupones para esta tienda. ¡Sé el primero en añadir uno!"
+  },
+  "popupAddSectionTitle": {
+    "message": "¿Conoces un código que funcione aquí?"
+  },
+  "popupCodePlaceholder": {
+    "message": "Código (ej. VERANO10)"
+  },
+  "popupDescPlaceholder": {
+    "message": "Descripción (opcional)"
+  },
+  "popupAddButton": {
+    "message": "Añadir cupón"
+  },
+  "popupHintShared": {
+    "message": "Tu cupón se comparte con el resto de usuarios de la extensión."
+  },
+  "popupHintLocal": {
+    "message": "De momento se guarda solo en tu navegador (backend compartido no configurado todavía)."
+  },
+  "popupErrorInvalidCode": {
+    "message": "Ese código no es válido: usa solo letras, números, espacios o guiones (2-40 caracteres)."
+  },
+  "popupErrorInvalidDesc": {
+    "message": "La descripción no puede superar los 140 caracteres ni contener enlaces."
+  },
+  "popupErrorRateLimited": {
+    "message": "Has añadido varios cupones en poco tiempo — inténtalo de nuevo un poco más tarde."
+  },
+  "popupErrorGeneric": {
+    "message": "No se pudo guardar el cupón, inténtalo de nuevo en un momento."
+  },
+  "popupSettingsTitle": {
+    "message": "Ajustes"
+  },
+  "onboardingTitle": {
+    "message": "Bienvenida a Cazadora de Cupones"
+  },
+  "onboardingIntro": {
+    "message": "Prueba automáticamente cupones de descuento reales cuando llegas al carrito de cualquier tienda online. Así es como funciona:"
+  },
+  "onboardingStep1Title": {
+    "message": "1. Llega al carrito"
+  },
+  "onboardingStep1Body": {
+    "message": "Navega y compra como siempre. En cuanto entres en el carrito o el pago de una tienda, la extensión lo detecta sola."
+  },
+  "onboardingStep2Title": {
+    "message": "2. Aparece el aviso"
+  },
+  "onboardingStep2Body": {
+    "message": "Si hay cupones guardados para esa tienda, verás un pequeño aviso flotante. Pulsa \"Probar cupones\"."
+  },
+  "onboardingStep3Title": {
+    "message": "3. Se queda el mejor"
+  },
+  "onboardingStep3Body": {
+    "message": "La extensión prueba cada código en segundo plano y deja aplicado el que más rebaja el precio, mostrándote cuánto ahorras."
+  },
+  "onboardingTransparencyTitle": {
+    "message": "Cómo se financia"
+  },
+  "onboardingTransparencyBody": {
+    "message": "En tiendas donde tenemos programa de afiliados, al usar la extensión se registra tu visita a nuestro favor sin coste añadido para ti — nunca cambia el precio que pagas. Puedes desactivarlo en cualquier momento desde Ajustes."
+  },
+  "onboardingPrivacyLink": {
+    "message": "Leer la política de privacidad"
+  },
+  "onboardingSettingsLink": {
+    "message": "Abrir ajustes"
+  },
+  "onboardingCta": {
+    "message": "Entendido, ¡a por chollos!"
+  },
+  "optionsTitle": {
+    "message": "Ajustes — Cazadora de Cupones"
+  },
+  "optionsStatusSectionTitle": {
+    "message": "Estado"
+  },
+  "optionsStatusBackendLabel": {
+    "message": "Backend compartido"
+  },
+  "optionsStatusBackendOn": {
+    "message": "Activo — tus cupones se comparten con la comunidad"
+  },
+  "optionsStatusBackendOff": {
+    "message": "Inactivo — los cupones que añadas se guardan solo en este navegador"
+  },
+  "optionsStatusAffiliateLabel": {
+    "message": "Tiendas con comisión de afiliado"
+  },
+  "optionsStatusAffiliateCount": {
+    "message": "%COUNT% tienda(s) configurada(s)"
+  },
+  "optionsPrivacySectionTitle": {
+    "message": "Privacidad"
+  },
+  "optionsAffiliateToggleLabel": {
+    "message": "Permitir el sellado de afiliado en tiendas colaboradoras"
+  },
+  "optionsAffiliateToggleBody": {
+    "message": "Cuando está activo, al visitar una tienda con programa de afiliados configurado, se registra la visita a nuestro favor en segundo plano (sin redirigirte ni cambiar el precio). Desactívalo si prefieres que la extensión funcione solo como buscador de cupones."
+  },
+  "optionsDataSectionTitle": {
+    "message": "Tus datos"
+  },
+  "optionsClearDataLabel": {
+    "message": "Borrar datos guardados en este navegador"
+  },
+  "optionsClearDataBody": {
+    "message": "Elimina los cupones que hayas aportado tú y el histórico de precios que se guardaron solo localmente (no afecta a lo compartido por la comunidad)."
+  },
+  "optionsClearDataButton": {
+    "message": "Borrar datos locales"
+  },
+  "optionsClearDataConfirm": {
+    "message": "¿Seguro que quieres borrar tus datos guardados localmente (cupones e histórico de precios)? No se puede deshacer."
+  },
+  "optionsClearDataDone": {
+    "message": "Listo, se han borrado tus datos locales."
+  },
+  "optionsPrivacyPolicyLink": {
+    "message": "Ver política de privacidad completa"
+  },
+  "optionsSavedNote": {
+    "message": "Los cambios se guardan automáticamente."
+  },
+  "optionsPriceRadarToggleLabel": {
+    "message": "Activar el radar de precios"
+  },
+  "optionsPriceRadarToggleBody": {
+    "message": "Cuando está activo, al visitar la ficha de un producto se registra su precio (localmente, y también en la base de datos compartida si está configurada) para poder avisarte si ha subido antes de una rebaja, si es el precio más bajo visto recientemente, o si el mismo producto está más barato en otra tienda (cuando la propia ficha indica su código de barras o marca+referencia). Se guarda el precio, la página del producto y, si están disponibles, ese código o marca+referencia — nunca datos personales."
+  },
+  "priceRadarUpMessage": {
+    "message": "Este producto ha subido ~%PERCENT%% en los últimos 30 días (antes: %PRICE%). El cupón puede estar maquillando la subida."
+  },
+  "priceRadarLowMessage": {
+    "message": "Este es el precio más bajo que hemos visto de este producto en los últimos 30 días."
+  },
+  "priceRadarCheaperElsewhereMessage": {
+    "message": "Este mismo producto está ~%PERCENT%% más barato en %STORE%."
+  },
+  "popupAffiliateNotice": {
+    "message": "🔗 Usamos enlaces de afiliado en tiendas colaboradoras"
+  },
+  "popupAffiliateNoticeLink": {
+    "message": "Más info"
+  },
+  "widgetAffiliateNote": {
+    "message": "Si compras aquí, podemos ganar una comisión de afiliado — nunca cambia lo que pagas."
+  },
+  "legalPageTitle": {
+    "message": "Privacidad y programas de afiliados — Cazadora de Cupones"
+  },
+  "legalIntro": {
+    "message": "Cazadora de Cupones busca y prueba automáticamente cupones de descuento cuando llegas al carrito de una tienda online. Esta página explica cómo se financia la extensión y qué datos maneja."
+  },
+  "legalAffiliateHeading": {
+    "message": "Enlaces de afiliado"
+  },
+  "legalAffiliateBody": {
+    "message": "En las tiendas donde tenemos programa de afiliados, la extensión registra tu visita a nuestro favor ante la red de afiliación (por ejemplo Awin), de forma automática y sin redirigirte a ningún sitio. Si acabas comprando, podemos recibir una pequeña comisión de la tienda. Esto nunca cambia el precio que pagas ni añade coste alguno. Puedes desactivar esta función en cualquier momento desde Ajustes, en el interruptor «Permitir el sellado de afiliado en tiendas colaboradoras»."
+  },
+  "legalDataHeading": {
+    "message": "Qué datos guardamos"
+  },
+  "legalDataBody": {
+    "message": "Los cupones que aportas y, si activas el radar de precios, el historial de precios que ves se guardan en tu navegador y, opcionalmente, en un backend compartido para que otras personas se beneficien de ellos. No vendemos tus datos a terceros. Puedes borrar tus datos locales en cualquier momento desde Ajustes."
+  },
+  "legalBackLink": {
+    "message": "← Volver a Ajustes"
+  }
 }

@@ -106,6 +106,13 @@ document.addEventListener("DOMContentLoaded", () => {
     chrome.runtime.openOptionsPage();
   });
 
+  const affiliateInfoBtn = document.getElementById("cz-affiliate-info-btn");
+  if (affiliateInfoBtn) {
+    affiliateInfoBtn.addEventListener("click", () => {
+      chrome.tabs.create({ url: chrome.runtime.getURL("legal/privacy-policy.html") });
+    });
+  }
+
   chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
     const tab = tabs[0];
     if (!tab || !tab.url) {

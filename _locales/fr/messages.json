@@ -1,78 +1,233 @@
 {
-  "appName": { "message": "Cazadora de Cupones" },
-  "appDescription": { "message": "Trouve et essaie automatiquement de vrais codes promo au moment de payer sur les boutiques en ligne." },
-
-  "widgetBrand": { "message": "🎟️ Cazadora de Cupones" },
-  "widgetCloseTitle": { "message": "Fermer" },
-  "widgetMessage": { "message": "Nous avons <strong>%COUPONS%</strong> enregistré(s) pour cette boutique. Nous pouvons les essayer tout de suite." },
-  "couponCountSingular": { "message": "1 code" },
-  "couponCountPlural": { "message": "%COUNT% codes" },
-  "widgetApplyButton": { "message": "Essayer les codes" },
-  "widgetDismissButton": { "message": "Pas maintenant" },
-
-  "statusTryingCode": { "message": "Essai du code %INDEX%/%TOTAL% : %CODE%…" },
-  "statusBestCode": { "message": "✅ Meilleur code : %CODE%. Vous économisez environ %AMOUNT% par rapport au prix initial." },
-  "statusApplied": { "message": "Nous avons appliqué le code %CODE%. Vérifiez la réduction dans votre panier." },
-  "statusNoConfirm": { "message": "Nous avons essayé %COUNT% code(s), mais impossible de confirmer l'économie automatiquement. Vérifiez votre panier." },
-
-  "popupTitle": { "message": "Cazadora de Cupones" },
-  "popupDetectingStore": { "message": "Détection de la boutique…" },
-  "popupNoStoreDetected": { "message": "Impossible de détecter la boutique actuelle." },
-  "popupCurrentStore": { "message": "Boutique actuelle : %DOMAIN%" },
-  "popupCouponsSectionTitle": { "message": "Codes pour cette boutique" },
-  "popupSearchingCoupons": { "message": "Recherche de codes…" },
-  "popupEmptyCoupons": { "message": "Nous n'avons pas encore de codes pour cette boutique. Soyez le premier à en ajouter un !" },
-  "popupAddSectionTitle": { "message": "Vous connaissez un code qui fonctionne ici ?" },
-  "popupCodePlaceholder": { "message": "Code (ex. ETE10)" },
-  "popupDescPlaceholder": { "message": "Description (facultatif)" },
-  "popupAddButton": { "message": "Ajouter le code" },
-  "popupHintShared": { "message": "Votre code est partagé avec les autres utilisateurs de l'extension." },
-  "popupHintLocal": { "message": "Pour l'instant il est enregistré uniquement dans votre navigateur (backend partagé non configuré)." },
-
-  "popupErrorInvalidCode": { "message": "Ce code ne semble pas valide — utilisez uniquement des lettres, chiffres, espaces ou tirets (2 à 40 caractères)." },
-  "popupErrorInvalidDesc": { "message": "La description ne peut pas dépasser 140 caractères ni contenir de liens." },
-  "popupErrorRateLimited": { "message": "Vous avez ajouté plusieurs codes en peu de temps — réessayez un peu plus tard." },
-  "popupErrorGeneric": { "message": "Impossible d'enregistrer le code, réessayez dans un instant." },
-
-  "popupSettingsTitle": { "message": "Paramètres" },
-
-  "onboardingTitle": { "message": "Bienvenue sur Cazadora de Cupones" },
-  "onboardingIntro": { "message": "L'extension essaie automatiquement de vrais codes promo dès que vous arrivez au panier d'une boutique en ligne. Voici comment ça marche :" },
-  "onboardingStep1Title": { "message": "1. Arrivez au panier" },
-  "onboardingStep1Body": { "message": "Faites vos achats comme d'habitude. Dès que vous arrivez sur la page panier ou paiement d'une boutique, l'extension le détecte toute seule." },
-  "onboardingStep2Title": { "message": "2. Voyez la notification" },
-  "onboardingStep2Body": { "message": "Si nous avons des codes enregistrés pour cette boutique, une petite notification apparaît. Appuyez sur « Essayer les codes »." },
-  "onboardingStep3Title": { "message": "3. Le meilleur reste appliqué" },
-  "onboardingStep3Body": { "message": "L'extension essaie chaque code en arrière-plan et garde celui qui baisse le plus le prix, en vous montrant combien vous économisez." },
-  "onboardingTransparencyTitle": { "message": "Comment c'est financé" },
-  "onboardingTransparencyBody": { "message": "Dans les boutiques où nous avons un programme d'affiliation, l'utilisation de l'extension enregistre votre visite en notre faveur, sans coût supplémentaire pour vous — le prix que vous payez ne change jamais. Vous pouvez le désactiver à tout moment dans les paramètres." },
-  "onboardingPrivacyLink": { "message": "Lire la politique de confidentialité" },
-  "onboardingSettingsLink": { "message": "Ouvrir les paramètres" },
-  "onboardingCta": { "message": "Compris, à la chasse aux bons plans !" },
-
-  "optionsTitle": { "message": "Paramètres — Cazadora de Cupones" },
-  "optionsStatusSectionTitle": { "message": "État" },
-  "optionsStatusBackendLabel": { "message": "Backend partagé" },
-  "optionsStatusBackendOn": { "message": "Actif — vos codes sont partagés avec la communauté" },
-  "optionsStatusBackendOff": { "message": "Inactif — les codes que vous ajoutez sont enregistrés uniquement dans ce navigateur" },
-  "optionsStatusAffiliateLabel": { "message": "Boutiques avec commission d'affiliation" },
-  "optionsStatusAffiliateCount": { "message": "%COUNT% boutique(s) configurée(s)" },
-  "optionsPrivacySectionTitle": { "message": "Confidentialité" },
-  "optionsAffiliateToggleLabel": { "message": "Autoriser le marquage d'affiliation sur les boutiques partenaires" },
-  "optionsAffiliateToggleBody": { "message": "Lorsque c'est activé, visiter une boutique avec un programme d'affiliation configuré enregistre la visite en notre faveur en arrière-plan (pas de redirection, pas de changement de prix). Désactivez-le si vous préférez que l'extension serve uniquement de chercheur de codes." },
-  "optionsDataSectionTitle": { "message": "Vos données" },
-  "optionsClearDataLabel": { "message": "Effacer les données enregistrées dans ce navigateur" },
-  "optionsClearDataBody": { "message": "Supprime les codes que vous avez ajoutés et l'historique des prix enregistrés uniquement localement (n'affecte pas ce que la communauté partage)." },
-  "optionsClearDataButton": { "message": "Effacer les données locales" },
-  "optionsClearDataConfirm": { "message": "Voulez-vous vraiment effacer vos données enregistrées localement (codes et historique des prix) ? Cette action est irréversible." },
-  "optionsClearDataDone": { "message": "Terminé — vos données locales ont été effacées." },
-  "optionsPrivacyPolicyLink": { "message": "Voir la politique de confidentialité complète" },
-  "optionsSavedNote": { "message": "Les modifications sont enregistrées automatiquement." },
-
-  "optionsPriceRadarToggleLabel": { "message": "Activer le radar de prix" },
-  "optionsPriceRadarToggleBody": { "message": "Lorsque c'est activé, visiter une page produit enregistre son prix (localement, et aussi dans la base partagée si elle est configurée) afin de vous avertir s'il a augmenté avant une promo, s'il s'agit du prix le plus bas vu récemment, ou si ce même produit est moins cher dans une autre boutique (quand la page indique un code-barres ou une marque+référence). Nous enregistrons le prix, la page produit et, si disponible, ce code ou cette marque+référence — jamais de données personnelles." },
-
-  "priceRadarUpMessage": { "message": "Ce produit a augmenté d'environ %PERCENT%% au cours des 30 derniers jours (avant : %PRICE%). Le code promo pourrait simplement masquer cette hausse." },
-  "priceRadarLowMessage": { "message": "C'est le prix le plus bas que nous ayons vu pour ce produit au cours des 30 derniers jours." },
-  "priceRadarCheaperElsewhereMessage": { "message": "Ce même produit est environ %PERCENT%% moins cher chez %STORE%." }
+  "appName": {
+    "message": "Cazadora de Cupones"
+  },
+  "appDescription": {
+    "message": "Trouve et essaie automatiquement de vrais codes promo au moment de payer sur les boutiques en ligne. Utilise des liens d'affiliation chez les boutiques partenaires : si vous achetez via ces liens, nous pouvons toucher une commission, sans surcoût pour vous."
+  },
+  "widgetBrand": {
+    "message": "🎟️ Cazadora de Cupones"
+  },
+  "widgetCloseTitle": {
+    "message": "Fermer"
+  },
+  "widgetMessage": {
+    "message": "Nous avons <strong>%COUPONS%</strong> enregistré(s) pour cette boutique. Nous pouvons les essayer tout de suite."
+  },
+  "couponCountSingular": {
+    "message": "1 code"
+  },
+  "couponCountPlural": {
+    "message": "%COUNT% codes"
+  },
+  "widgetApplyButton": {
+    "message": "Essayer les codes"
+  },
+  "widgetDismissButton": {
+    "message": "Pas maintenant"
+  },
+  "statusTryingCode": {
+    "message": "Essai du code %INDEX%/%TOTAL% : %CODE%…"
+  },
+  "statusBestCode": {
+    "message": "✅ Meilleur code : %CODE%. Vous économisez environ %AMOUNT% par rapport au prix initial."
+  },
+  "statusApplied": {
+    "message": "Nous avons appliqué le code %CODE%. Vérifiez la réduction dans votre panier."
+  },
+  "statusNoConfirm": {
+    "message": "Nous avons essayé %COUNT% code(s), mais impossible de confirmer l'économie automatiquement. Vérifiez votre panier."
+  },
+  "popupTitle": {
+    "message": "Cazadora de Cupones"
+  },
+  "popupDetectingStore": {
+    "message": "Détection de la boutique…"
+  },
+  "popupNoStoreDetected": {
+    "message": "Impossible de détecter la boutique actuelle."
+  },
+  "popupCurrentStore": {
+    "message": "Boutique actuelle : %DOMAIN%"
+  },
+  "popupCouponsSectionTitle": {
+    "message": "Codes pour cette boutique"
+  },
+  "popupSearchingCoupons": {
+    "message": "Recherche de codes…"
+  },
+  "popupEmptyCoupons": {
+    "message": "Nous n'avons pas encore de codes pour cette boutique. Soyez le premier à en ajouter un !"
+  },
+  "popupAddSectionTitle": {
+    "message": "Vous connaissez un code qui fonctionne ici ?"
+  },
+  "popupCodePlaceholder": {
+    "message": "Code (ex. ETE10)"
+  },
+  "popupDescPlaceholder": {
+    "message": "Description (facultatif)"
+  },
+  "popupAddButton": {
+    "message": "Ajouter le code"
+  },
+  "popupHintShared": {
+    "message": "Votre code est partagé avec les autres utilisateurs de l'extension."
+  },
+  "popupHintLocal": {
+    "message": "Pour l'instant il est enregistré uniquement dans votre navigateur (backend partagé non configuré)."
+  },
+  "popupErrorInvalidCode": {
+    "message": "Ce code ne semble pas valide — utilisez uniquement des lettres, chiffres, espaces ou tirets (2 à 40 caractères)."
+  },
+  "popupErrorInvalidDesc": {
+    "message": "La description ne peut pas dépasser 140 caractères ni contenir de liens."
+  },
+  "popupErrorRateLimited": {
+    "message": "Vous avez ajouté plusieurs codes en peu de temps — réessayez un peu plus tard."
+  },
+  "popupErrorGeneric": {
+    "message": "Impossible d'enregistrer le code, réessayez dans un instant."
+  },
+  "popupSettingsTitle": {
+    "message": "Paramètres"
+  },
+  "onboardingTitle": {
+    "message": "Bienvenue sur Cazadora de Cupones"
+  },
+  "onboardingIntro": {
+    "message": "L'extension essaie automatiquement de vrais codes promo dès que vous arrivez au panier d'une boutique en ligne. Voici comment ça marche :"
+  },
+  "onboardingStep1Title": {
+    "message": "1. Arrivez au panier"
+  },
+  "onboardingStep1Body": {
+    "message": "Faites vos achats comme d'habitude. Dès que vous arrivez sur la page panier ou paiement d'une boutique, l'extension le détecte toute seule."
+  },
+  "onboardingStep2Title": {
+    "message": "2. Voyez la notification"
+  },
+  "onboardingStep2Body": {
+    "message": "Si nous avons des codes enregistrés pour cette boutique, une petite notification apparaît. Appuyez sur « Essayer les codes »."
+  },
+  "onboardingStep3Title": {
+    "message": "3. Le meilleur reste appliqué"
+  },
+  "onboardingStep3Body": {
+    "message": "L'extension essaie chaque code en arrière-plan et garde celui qui baisse le plus le prix, en vous montrant combien vous économisez."
+  },
+  "onboardingTransparencyTitle": {
+    "message": "Comment c'est financé"
+  },
+  "onboardingTransparencyBody": {
+    "message": "Dans les boutiques où nous avons un programme d'affiliation, l'utilisation de l'extension enregistre votre visite en notre faveur, sans coût supplémentaire pour vous — le prix que vous payez ne change jamais. Vous pouvez le désactiver à tout moment dans les paramètres."
+  },
+  "onboardingPrivacyLink": {
+    "message": "Lire la politique de confidentialité"
+  },
+  "onboardingSettingsLink": {
+    "message": "Ouvrir les paramètres"
+  },
+  "onboardingCta": {
+    "message": "Compris, à la chasse aux bons plans !"
+  },
+  "optionsTitle": {
+    "message": "Paramètres — Cazadora de Cupones"
+  },
+  "optionsStatusSectionTitle": {
+    "message": "État"
+  },
+  "optionsStatusBackendLabel": {
+    "message": "Backend partagé"
+  },
+  "optionsStatusBackendOn": {
+    "message": "Actif — vos codes sont partagés avec la communauté"
+  },
+  "optionsStatusBackendOff": {
+    "message": "Inactif — les codes que vous ajoutez sont enregistrés uniquement dans ce navigateur"
+  },
+  "optionsStatusAffiliateLabel": {
+    "message": "Boutiques avec commission d'affiliation"
+  },
+  "optionsStatusAffiliateCount": {
+    "message": "%COUNT% boutique(s) configurée(s)"
+  },
+  "optionsPrivacySectionTitle": {
+    "message": "Confidentialité"
+  },
+  "optionsAffiliateToggleLabel": {
+    "message": "Autoriser le marquage d'affiliation sur les boutiques partenaires"
+  },
+  "optionsAffiliateToggleBody": {
+    "message": "Lorsque c'est activé, visiter une boutique avec un programme d'affiliation configuré enregistre la visite en notre faveur en arrière-plan (pas de redirection, pas de changement de prix). Désactivez-le si vous préférez que l'extension serve uniquement de chercheur de codes."
+  },
+  "optionsDataSectionTitle": {
+    "message": "Vos données"
+  },
+  "optionsClearDataLabel": {
+    "message": "Effacer les données enregistrées dans ce navigateur"
+  },
+  "optionsClearDataBody": {
+    "message": "Supprime les codes que vous avez ajoutés et l'historique des prix enregistrés uniquement localement (n'affecte pas ce que la communauté partage)."
+  },
+  "optionsClearDataButton": {
+    "message": "Effacer les données locales"
+  },
+  "optionsClearDataConfirm": {
+    "message": "Voulez-vous vraiment effacer vos données enregistrées localement (codes et historique des prix) ? Cette action est irréversible."
+  },
+  "optionsClearDataDone": {
+    "message": "Terminé — vos données locales ont été effacées."
+  },
+  "optionsPrivacyPolicyLink": {
+    "message": "Voir la politique de confidentialité complète"
+  },
+  "optionsSavedNote": {
+    "message": "Les modifications sont enregistrées automatiquement."
+  },
+  "optionsPriceRadarToggleLabel": {
+    "message": "Activer le radar de prix"
+  },
+  "optionsPriceRadarToggleBody": {
+    "message": "Lorsque c'est activé, visiter une page produit enregistre son prix (localement, et aussi dans la base partagée si elle est configurée) afin de vous avertir s'il a augmenté avant une promo, s'il s'agit du prix le plus bas vu récemment, ou si ce même produit est moins cher dans une autre boutique (quand la page indique un code-barres ou une marque+référence). Nous enregistrons le prix, la page produit et, si disponible, ce code ou cette marque+référence — jamais de données personnelles."
+  },
+  "priceRadarUpMessage": {
+    "message": "Ce produit a augmenté d'environ %PERCENT%% au cours des 30 derniers jours (avant : %PRICE%). Le code promo pourrait simplement masquer cette hausse."
+  },
+  "priceRadarLowMessage": {
+    "message": "C'est le prix le plus bas que nous ayons vu pour ce produit au cours des 30 derniers jours."
+  },
+  "priceRadarCheaperElsewhereMessage": {
+    "message": "Ce même produit est environ %PERCENT%% moins cher chez %STORE%."
+  },
+  "popupAffiliateNotice": {
+    "message": "🔗 Nous utilisons des liens d'affiliation chez nos boutiques partenaires"
+  },
+  "popupAffiliateNoticeLink": {
+    "message": "En savoir plus"
+  },
+  "widgetAffiliateNote": {
+    "message": "Si vous achetez ici, nous pouvons toucher une commission d'affiliation — cela ne change jamais ce que vous payez."
+  },
+  "legalPageTitle": {
+    "message": "Confidentialité et programmes d'affiliation — Cazadora de Cupones"
+  },
+  "legalIntro": {
+    "message": "Cazadora de Cupones trouve et essaie automatiquement des codes promo lorsque vous arrivez au panier d'une boutique en ligne. Cette page explique comment l'extension est financée et quelles données elle traite."
+  },
+  "legalAffiliateHeading": {
+    "message": "Liens d'affiliation"
+  },
+  "legalAffiliateBody": {
+    "message": "Dans les boutiques où nous avons un programme d'affiliation, l'extension enregistre automatiquement votre visite auprès du réseau d'affiliation (par exemple Awin), sans vous rediriger nulle part. Si vous achetez, nous pouvons toucher une petite commission de la boutique. Cela ne change jamais le prix que vous payez et n'ajoute aucun coût. Vous pouvez désactiver cette fonction à tout moment dans les Paramètres, via l'interrupteur « Autoriser le marquage d'affiliation chez les boutiques partenaires »."
+  },
+  "legalDataHeading": {
+    "message": "Quelles données nous conservons"
+  },
+  "legalDataBody": {
+    "message": "Les codes promo que vous ajoutez et, si vous activez le radar de prix, l'historique des prix que vous consultez sont stockés dans votre navigateur et, éventuellement, dans un backend partagé afin que d'autres personnes en profitent. Nous ne vendons pas vos données à des tiers. Vous pouvez supprimer vos données locales à tout moment depuis les Paramètres."
+  },
+  "legalBackLink": {
+    "message": "← Retour aux Paramètres"
+  }
 }

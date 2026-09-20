@@ -119,6 +119,15 @@
   line-height: 1.4;
 }
 
+#cazadora-widget .cz-affiliate-note {
+  margin-top: 10px;
+  padding-top: 9px;
+  border-top: 1px dashed var(--cz-sage);
+  font-size: 10.5px;
+  color: #5c6b61;
+  line-height: 1.4;
+}
+
 /* --- Radar de precios: aviso flotante independiente, arriba a la derecha --- */
 
 #cazadora-price-radar {

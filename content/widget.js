@@ -49,6 +49,7 @@
           <button class="cz-btn secondary" id="cz-dismiss">${chrome.i18n.getMessage("widgetDismissButton")}</button>
         </div>
         <div class="cz-status"></div>
+        <div class="cz-affiliate-note">${chrome.i18n.getMessage("widgetAffiliateNote")}</div>
       </div>
     `;
 
