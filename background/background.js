@@ -256,6 +256,16 @@ async function postCommunityCoupon(domain, code, desc) {
 }
 
 // --- Inyección del enlace de afiliado (monetización) ---
+//
+// IMPORTANTE (política de anuncios de afiliados de Chrome Web Store):
+// esta función solo debe invocarse como reacción directa a que el usuario
+// haya pulsado "Probar cupones" en el aviso Y hayamos confirmado que un
+// código concreto bajó el precio (ver content/content.js,
+// tagAffiliateForConfirmedBenefit(), llamada solo dentro del bloque
+// `if (bestCode)` de tryCoupons()). Nunca debe dispararse al cargar o
+// navegar por una página sin esa acción y ese beneficio confirmados —
+// eso es justo el "sellado de afiliado en segundo plano sin acción del
+// usuario" que la política prohíbe explícitamente.
 
 function todayKey() {
   return new Date().toISOString().slice(0, 10); // YYYY-MM-DD
@@ -277,6 +287,8 @@ async function isAffiliateTaggingEnabled() {
   return result.affiliateTaggingEnabled;
 }
 
+// Se llama únicamente tras la acción explícita del usuario y con un
+// descuento real confirmado (ver nota de la sección, arriba).
 async function maybeTagAffiliate(domainRaw, pageUrl) {
   const domain = normalizeDomain(domainRaw);
   const config = await loadAffiliateConfig();
@@ -285,7 +297,11 @@ async function maybeTagAffiliate(domainRaw, pageUrl) {
 
   if (!(await isAffiliateTaggingEnabled())) return; // el usuario lo ha desactivado en Ajustes
 
-  if (await alreadyTaggedToday(domain)) return; // ya se selló hoy, no repetir en cada página
+  // Límite técnico anti-duplicados: si el usuario vuelve a pulsar "Probar
+  // cupones" varias veces el mismo día en la misma tienda, no repetimos la
+  // petición a la red de afiliación. No sustituye la acción del usuario ni
+  // el beneficio confirmado: ambos ya se dieron en el primer sellado del día.
+  if (await alreadyTaggedToday(domain)) return;
 
   const trackingUrl = entry.trackingUrlTemplate.replace(
     "{TARGET_URL}",
@@ -293,8 +309,10 @@ async function maybeTagAffiliate(domainRaw, pageUrl) {
   );
 
   try {
-    // Petición "silenciosa": no navega al usuario a ningún sitio, solo deja que la
-    // red de afiliación registre la visita y ponga su cookie de seguimiento.
+    // No navega al usuario a ningún sitio: deja que la red de afiliación
+    // registre la conversión y ponga su cookie de seguimiento, igual que
+    // pasaría si el usuario hubiera hecho clic manualmente en un enlace de
+    // afiliado con el código ya aplicado y confirmado.
     await fetch(trackingUrl, { method: "GET", mode: "no-cors", credentials: "include" });
     await markTaggedToday(domain);
   } catch (e) {

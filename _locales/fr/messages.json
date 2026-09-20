@@ -3,7 +3,7 @@
     "message": "Cazadora de Cupones"
   },
   "appDescription": {
-    "message": "Trouve et essaie automatiquement de vrais codes promo au moment de payer sur les boutiques en ligne. Utilise des liens d'affiliation chez les boutiques partenaires : si vous achetez via ces liens, nous pouvons toucher une commission, sans surcoût pour vous."
+    "message": "Trouve et essaie automatiquement de vrais codes promo au moment de payer sur les boutiques en ligne. Si vous appliquez avec succès l'un de nos codes chez une boutique partenaire, nous pouvons toucher une commission d'affiliation, sans surcoût pour vous."
   },
   "widgetBrand": {
     "message": "🎟️ Cazadora de Cupones"
@@ -120,7 +120,7 @@
     "message": "Comment c'est financé"
   },
   "onboardingTransparencyBody": {
-    "message": "Dans les boutiques où nous avons un programme d'affiliation, l'utilisation de l'extension enregistre votre visite en notre faveur, sans coût supplémentaire pour vous — le prix que vous payez ne change jamais. Vous pouvez le désactiver à tout moment dans les paramètres."
+    "message": "Dans les boutiques où nous avons un programme d'affiliation : si vous appuyez sur « Essayer les codes » et que nous trouvons un code qui fait baisser votre prix, nous enregistrons cette action en notre faveur — sans coût supplémentaire pour vous et sans changer ce que vous payez. Cela n'arrive que si un code est appliqué avec succès, jamais simplement en visitant la boutique. Vous pouvez le désactiver à tout moment dans les Paramètres."
   },
   "onboardingPrivacyLink": {
     "message": "Lire la politique de confidentialité"
@@ -159,7 +159,7 @@
     "message": "Autoriser le marquage d'affiliation sur les boutiques partenaires"
   },
   "optionsAffiliateToggleBody": {
-    "message": "Lorsque c'est activé, visiter une boutique avec un programme d'affiliation configuré enregistre la visite en notre faveur en arrière-plan (pas de redirection, pas de changement de prix). Désactivez-le si vous préférez que l'extension serve uniquement de chercheur de codes."
+    "message": "Lorsque c'est activé : si vous appuyez sur « Essayer les codes » et que nous confirmons qu'un code précis a fait baisser le prix chez une boutique partenaire, nous enregistrons cette action en notre faveur (sans vous rediriger ni changer ce que vous payez). Cela n'arrive jamais simplement en visitant la boutique. Désactivez cette option si vous préférez que l'extension fonctionne uniquement comme chercheur de codes promo."
   },
   "optionsDataSectionTitle": {
     "message": "Vos données"
@@ -207,7 +207,7 @@
     "message": "En savoir plus"
   },
   "widgetAffiliateNote": {
-    "message": "Si vous achetez ici, nous pouvons toucher une commission d'affiliation — cela ne change jamais ce que vous payez."
+    "message": "Si vous appliquez un code qui fonctionne, nous pouvons toucher une commission d'affiliation — cela ne change jamais ce que vous payez."
   },
   "legalPageTitle": {
     "message": "Confidentialité et programmes d'affiliation — Cazadora de Cupones"
@@ -219,7 +219,7 @@
     "message": "Liens d'affiliation"
   },
   "legalAffiliateBody": {
-    "message": "Dans les boutiques où nous avons un programme d'affiliation, l'extension enregistre automatiquement votre visite auprès du réseau d'affiliation (par exemple Awin), sans vous rediriger nulle part. Si vous achetez, nous pouvons toucher une petite commission de la boutique. Cela ne change jamais le prix que vous payez et n'ajoute aucun coût. Vous pouvez désactiver cette fonction à tout moment dans les Paramètres, via l'interrupteur « Autoriser le marquage d'affiliation chez les boutiques partenaires »."
+    "message": "Dans les boutiques où nous avons un programme d'affiliation, nous n'enregistrons quelque chose auprès du réseau d'affiliation (par exemple Awin) que lorsque vous appuyez sur « Essayer les codes » et que nous confirmons qu'un code précis a fait baisser le prix de votre panier. Nous ne le faisons jamais simplement en visitant la boutique ni sans avoir confirmé une réduction réelle. Si vous achetez, nous pouvons toucher une petite commission de la boutique — cela ne change jamais le prix que vous payez et n'ajoute aucun coût. Vous pouvez désactiver cette fonction à tout moment dans les Paramètres, via l'interrupteur « Autoriser le marquage d'affiliation chez les boutiques partenaires »."
   },
   "legalDataHeading": {
     "message": "Quelles données nous conservons"

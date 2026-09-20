@@ -3,7 +3,7 @@
     "message": "Cazadora de Cupones"
   },
   "appDescription": {
-    "message": "Trova e prova automaticamente codici sconto reali al momento di pagare nei negozi online. Utilizza link di affiliazione nei negozi partner: se acquisti tramite questi link potremmo ricevere una commissione, senza costi aggiuntivi per te."
+    "message": "Trova e prova automaticamente codici sconto reali al momento di pagare nei negozi online. Se applichi con successo uno dei nostri codici in un negozio partner, potremmo ricevere una commissione di affiliazione, senza costi aggiuntivi per te."
   },
   "widgetBrand": {
     "message": "🎟️ Cazadora de Cupones"
@@ -120,7 +120,7 @@
     "message": "Come si finanzia"
   },
   "onboardingTransparencyBody": {
-    "message": "Nei negozi con cui abbiamo un programma di affiliazione, usare l'estensione registra la tua visita a nostro favore, senza costi aggiuntivi per te — il prezzo che paghi non cambia mai. Puoi disattivarlo in qualsiasi momento dalle impostazioni."
+    "message": "Nei negozi con programma di affiliazione: se tocchi «Prova i codici» e troviamo un codice che abbassa il tuo prezzo, registriamo quell'azione a nostro favore — senza costi aggiuntivi per te e senza cambiare quanto paghi. Succede solo se un codice viene applicato con successo, mai per il solo fatto di visitare il negozio. Puoi disattivarlo in qualsiasi momento dalle Impostazioni."
   },
   "onboardingPrivacyLink": {
     "message": "Leggi l'informativa sulla privacy"
@@ -159,7 +159,7 @@
     "message": "Consenti il tracciamento di affiliazione nei negozi partner"
   },
   "optionsAffiliateToggleBody": {
-    "message": "Quando è attivo, visitare un negozio con un programma di affiliazione configurato registra la visita a nostro favore in background (nessun reindirizzamento, nessuna modifica al prezzo). Disattivalo se preferisci che l'estensione funzioni solo come cercatore di codici."
+    "message": "Quando è attivo: se tocchi «Prova i codici» e confermiamo che un codice specifico ha abbassato il prezzo in un negozio partner, registriamo quell'azione a nostro favore (senza reindirizzarti né cambiare quanto paghi). Non avviene mai per il solo fatto di visitare il negozio. Disattivalo se preferisci che l'estensione funzioni solo come cercatore di codici sconto."
   },
   "optionsDataSectionTitle": {
     "message": "I tuoi dati"
@@ -207,7 +207,7 @@
     "message": "Scopri di più"
   },
   "widgetAffiliateNote": {
-    "message": "Se acquisti qui, potremmo ricevere una commissione di affiliazione — questo non cambia mai quanto paghi."
+    "message": "Se applichi un codice che funziona, potremmo ricevere una commissione di affiliazione — questo non cambia mai quanto paghi."
   },
   "legalPageTitle": {
     "message": "Privacy e programmi di affiliazione — Cazadora de Cupones"
@@ -219,7 +219,7 @@
     "message": "Link di affiliazione"
   },
   "legalAffiliateBody": {
-    "message": "Nei negozi in cui abbiamo un programma di affiliazione, l'estensione registra automaticamente la tua visita presso la rete di affiliazione (ad esempio Awin), senza reindirizzarti da nessuna parte. Se acquisti, potremmo ricevere una piccola commissione dal negozio. Questo non cambia mai il prezzo che paghi né aggiunge alcun costo. Puoi disattivare questa funzione in qualsiasi momento dalle Impostazioni, tramite l'interruttore «Consenti il tagging di affiliazione nei negozi partner»."
+    "message": "Nei negozi con programma di affiliazione, registriamo qualcosa presso la rete di affiliazione (ad esempio Awin) solo quando tocchi «Prova i codici» e confermiamo che un codice specifico ha abbassato il prezzo del tuo carrello. Non lo facciamo mai per il solo fatto di visitare il negozio né senza aver confermato uno sconto reale. Se acquisti, potremmo ricevere una piccola commissione dal negozio — questo non cambia mai il prezzo che paghi né aggiunge alcun costo. Puoi disattivare questa funzione in qualsiasi momento dalle Impostazioni, tramite l'interruttore «Consenti il tagging di affiliazione nei negozi partner»."
   },
   "legalDataHeading": {
     "message": "Quali dati conserviamo"

@@ -3,7 +3,7 @@
     "message": "Cazadora de Cupones"
   },
   "appDescription": {
-    "message": "Automatically finds and tries real discount codes at online store checkouts. Uses affiliate links in partner stores: if you buy through them we may earn a commission, at no extra cost to you."
+    "message": "Automatically finds and tries real discount codes at online store checkouts. If you successfully apply one of our coupons at a partner store, we may earn an affiliate commission, at no extra cost to you."
   },
   "widgetBrand": {
     "message": "🎟️ Cazadora de Cupones"
@@ -120,7 +120,7 @@
     "message": "How it's funded"
   },
   "onboardingTransparencyBody": {
-    "message": "In stores where we have an affiliate program, using the extension records your visit in our favor at no extra cost to you — the price you pay never changes. You can turn this off anytime in Settings."
+    "message": "In stores where we have an affiliate program: if you tap \"Try coupons\" and we find a code that lowers your price, we register that action in our favor — at no extra cost to you and without changing what you pay. This only happens if a coupon is applied successfully, never just from visiting the store. You can turn it off at any time in Settings."
   },
   "onboardingPrivacyLink": {
     "message": "Read the privacy policy"
@@ -159,7 +159,7 @@
     "message": "Allow affiliate tagging on partner stores"
   },
   "optionsAffiliateToggleBody": {
-    "message": "When on, visiting a store with an affiliate program configured records the visit in our favor in the background (no redirect, no change to the price you pay). Turn it off if you'd rather the extension work purely as a coupon finder."
+    "message": "When on: if you tap \"Try coupons\" and we confirm a specific code lowered the price at a partner store, we register that action in our favor (without redirecting you or changing what you pay). This never happens just from visiting the store. Turn it off if you'd rather the extension work only as a coupon finder."
   },
   "optionsDataSectionTitle": {
     "message": "Your data"
@@ -207,7 +207,7 @@
     "message": "Learn more"
   },
   "widgetAffiliateNote": {
-    "message": "If you buy here, we may earn an affiliate commission — this never changes what you pay."
+    "message": "If you apply a coupon that works, we may earn an affiliate commission — this never changes what you pay."
   },
   "legalPageTitle": {
     "message": "Privacy & affiliate programs — Cazadora de Cupones"
@@ -219,7 +219,7 @@
     "message": "Affiliate links"
   },
   "legalAffiliateBody": {
-    "message": "In stores where we have an affiliate program, the extension automatically registers your visit with the affiliate network (for example Awin), without redirecting you anywhere. If you end up buying, we may earn a small commission from the store. This never changes the price you pay or adds any cost. You can turn this off at any time in Settings, using the \"Allow affiliate tagging in partner stores\" toggle."
+    "message": "In stores where we have an affiliate program, we only register something with the affiliate network (for example Awin) when you tap \"Try coupons\" and we confirm a specific code lowered your cart price. We never do this just from visiting the store or without confirming a real discount. If you end up buying, we may earn a small commission from the store — this never changes the price you pay or adds any cost. You can turn this off at any time in Settings, using the \"Allow affiliate tagging in partner stores\" toggle."
   },
   "legalDataHeading": {
     "message": "What data we store"

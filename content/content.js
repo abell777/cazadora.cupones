@@ -65,6 +65,13 @@
       applyCode(couponInput, applyButton, bestCode);
       await sleep(1000);
 
+      // Sellado de afiliado: SOLO aquí, tras un clic del usuario en "Probar
+      // cupones" y con un código que ha confirmado un precio más bajo. Nunca
+      // en la carga de la página ni sin haber encontrado descuento real
+      // (política de afiliados de Chrome: acción del usuario + beneficio
+      // directo en ese momento, no un sellado silencioso de fondo).
+      tagAffiliateForConfirmedBenefit();
+
       const saved = initial && initial.value != null ? initial.value - bestPrice : null;
       if (saved && saved > 0) {
         window.CazadoraWidget.setStatus(
@@ -155,10 +162,12 @@
     mutationDebounceTimer = setTimeout(attemptDetect, MUTATION_DEBOUNCE_MS);
   }
 
-  function tagAffiliateForCurrentPage() {
-    // Sellado de afiliado: se intenta en cualquier página de la tienda, no solo
-    // en el carrito, para maximizar que la cookie de la red esté puesta cuando
-    // el usuario acabe comprando. No tiene ningún efecto visible.
+  function tagAffiliateForConfirmedBenefit() {
+    // Únicamente se llama desde tryCoupons() cuando el usuario ha pulsado
+    // "Probar cupones" y un código concreto ha bajado el precio de verdad.
+    // No se llama nunca al cargar o navegar por la página: eso sería sellado
+    // de afiliado sin acción del usuario ni beneficio confirmado, que es lo
+    // que prohíbe la política de anuncios de afiliados de Chrome Web Store.
     chrome.runtime.sendMessage({
       type: "MAYBE_TAG_AFFILIATE",
       domain: getDomain(),
@@ -170,7 +179,6 @@
     if (window.location.href === currentUrl) return;
     currentUrl = window.location.href;
     shownForUrl = null; // nueva página: puede que ahora sí sea el carrito
-    tagAffiliateForCurrentPage();
     startWatching();
   }
 
@@ -191,7 +199,6 @@
 
   function init() {
     if (!window.CazadoraDetector || !window.CazadoraWidget) return;
-    tagAffiliateForCurrentPage();
     startWatching();
 
     new MutationObserver(onDomMutated).observe(document.documentElement, {

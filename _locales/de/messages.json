@@ -3,7 +3,7 @@
     "message": "Cazadora de Cupones"
   },
   "appDescription": {
-    "message": "Findet und testet automatisch echte Rabattcodes an der Kasse von Online-Shops. Verwendet Affiliate-Links bei Partner-Shops: Kaufst du darüber ein, erhalten wir möglicherweise eine Provision – ohne Mehrkosten für dich."
+    "message": "Findet und testet automatisch echte Rabattcodes an der Kasse von Online-Shops. Wendest du einen unserer Codes erfolgreich bei einem Partner-Shop an, erhalten wir möglicherweise eine Affiliate-Provision – ohne Mehrkosten für dich."
   },
   "widgetBrand": {
     "message": "🎟️ Cazadora de Cupones"
@@ -120,7 +120,7 @@
     "message": "So finanziert es sich"
   },
   "onboardingTransparencyBody": {
-    "message": "In Shops mit Partnerprogramm wird durch die Nutzung der Erweiterung dein Besuch zu unseren Gunsten erfasst — ohne zusätzliche Kosten für dich, der Preis, den du zahlst, ändert sich nie. Du kannst das jederzeit in den Einstellungen deaktivieren."
+    "message": "In Shops mit Affiliate-Programm: Tippst du auf „Codes testen“ und wir finden einen Code, der deinen Preis senkt, registrieren wir das zu unseren Gunsten — ohne Mehrkosten für dich und ohne deinen Preis zu ändern. Das passiert nur, wenn ein Code erfolgreich angewendet wurde, nie nur durch den Besuch des Shops. Du kannst dies jederzeit in den Einstellungen deaktivieren."
   },
   "onboardingPrivacyLink": {
     "message": "Datenschutzerklärung lesen"
@@ -159,7 +159,7 @@
     "message": "Affiliate-Kennzeichnung bei Partner-Shops erlauben"
   },
   "optionsAffiliateToggleBody": {
-    "message": "Wenn aktiviert, wird beim Besuch eines Shops mit konfiguriertem Partnerprogramm der Besuch im Hintergrund zu unseren Gunsten erfasst (keine Weiterleitung, keine Preisänderung). Deaktiviere dies, wenn die Erweiterung ausschließlich als Gutschein-Finder arbeiten soll."
+    "message": "Wenn aktiv: Tippst du auf „Codes testen“ und wir bestätigen, dass ein bestimmter Code den Preis bei einem Partner-Shop gesenkt hat, registrieren wir das zu unseren Gunsten (ohne dich umzuleiten oder deinen Preis zu ändern). Das passiert nie nur durch den Besuch des Shops. Schalte es aus, wenn die Erweiterung nur als Gutschein-Suche arbeiten soll."
   },
   "optionsDataSectionTitle": {
     "message": "Deine Daten"
@@ -207,7 +207,7 @@
     "message": "Mehr erfahren"
   },
   "widgetAffiliateNote": {
-    "message": "Kaufst du hier ein, erhalten wir möglicherweise eine Affiliate-Provision — das ändert nie, was du zahlst."
+    "message": "Wendest du einen funktionierenden Code an, erhalten wir möglicherweise eine Affiliate-Provision — das ändert nie, was du zahlst."
   },
   "legalPageTitle": {
     "message": "Datenschutz & Affiliate-Programme — Cazadora de Cupones"
@@ -219,7 +219,7 @@
     "message": "Affiliate-Links"
   },
   "legalAffiliateBody": {
-    "message": "In Shops, in denen wir an einem Affiliate-Programm teilnehmen, meldet die Erweiterung deinen Besuch automatisch beim Partnernetzwerk (z. B. Awin), ohne dich irgendwohin umzuleiten. Kaufst du dort ein, erhalten wir möglicherweise eine kleine Provision vom Shop. Das ändert nie den Preis, den du zahlst, und verursacht keine zusätzlichen Kosten. Du kannst dies jederzeit in den Einstellungen über den Schalter „Affiliate-Kennzeichnung bei Partner-Shops erlauben“ deaktivieren."
+    "message": "In Shops mit Affiliate-Programm melden wir nur dann etwas an das Partnernetzwerk (z. B. Awin), wenn du auf „Codes testen“ tippst und wir bestätigen, dass ein bestimmter Code deinen Warenkorbpreis gesenkt hat. Das passiert nie nur durch den Besuch des Shops oder ohne bestätigten echten Rabatt. Kaufst du dort ein, erhalten wir möglicherweise eine kleine Provision vom Shop — das ändert nie den Preis, den du zahlst, und verursacht keine zusätzlichen Kosten. Du kannst dies jederzeit in den Einstellungen über den Schalter „Affiliate-Kennzeichnung bei Partner-Shops erlauben“ deaktivieren."
   },
   "legalDataHeading": {
     "message": "Welche Daten wir speichern"

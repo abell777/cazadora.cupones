@@ -3,7 +3,7 @@
     "message": "Cazadora de Cupones"
   },
   "appDescription": {
-    "message": "Encontra e testa automaticamente códigos de desconto reais na finalização da compra em lojas online. Usa links de afiliado em lojas parceiras: se comprares através deles, podemos receber uma comissão, sem custo extra para ti."
+    "message": "Encontra e testa automaticamente códigos de desconto reais na finalização da compra em lojas online. Se aplicares com sucesso um dos nossos cupões numa loja parceira, podemos receber uma comissão de afiliado, sem custo extra para ti."
   },
   "widgetBrand": {
     "message": "🎟️ Cazadora de Cupones"
@@ -120,7 +120,7 @@
     "message": "Como é financiado"
   },
   "onboardingTransparencyBody": {
-    "message": "Em lojas onde temos programa de afiliados, usar a extensão regista a sua visita a nosso favor, sem custo adicional para si — o preço que paga nunca muda. Pode desativar isto a qualquer momento nas definições."
+    "message": "Nas lojas onde temos programa de afiliados: se tocares em «Testar cupões» e encontrarmos um código que baixa o teu preço, registamos essa ação a nosso favor — sem custo adicional para ti e sem alterar o que pagas. Só acontece se um cupão for aplicado com sucesso, nunca só por visitares a loja. Podes desativar isto a qualquer momento em Definições."
   },
   "onboardingPrivacyLink": {
     "message": "Ler a política de privacidade"
@@ -159,7 +159,7 @@
     "message": "Permitir marcação de afiliado em lojas parceiras"
   },
   "optionsAffiliateToggleBody": {
-    "message": "Quando ativo, visitar uma loja com programa de afiliados configurado regista a visita a nosso favor em segundo plano (sem redirecionamento, sem alteração de preço). Desative se preferir que a extensão funcione apenas como localizador de cupões."
+    "message": "Quando ativo: se tocares em «Testar cupões» e confirmarmos que um código específico baixou o preço numa loja parceira, registamos essa ação a nosso favor (sem te redirecionar nem alterar o que pagas). Isto nunca acontece só por visitares a loja. Desativa se preferires que a extensão funcione apenas como procurador de cupões."
   },
   "optionsDataSectionTitle": {
     "message": "Os seus dados"
@@ -207,7 +207,7 @@
     "message": "Saiba mais"
   },
   "widgetAffiliateNote": {
-    "message": "Se compras aqui, podemos receber uma comissão de afiliado — isso nunca muda o que pagas."
+    "message": "Se aplicares um cupão que funciona, podemos receber uma comissão de afiliado — isso nunca muda o que pagas."
   },
   "legalPageTitle": {
     "message": "Privacidade e programas de afiliados — Cazadora de Cupones"
@@ -219,7 +219,7 @@
     "message": "Links de afiliado"
   },
   "legalAffiliateBody": {
-    "message": "Nas lojas onde temos programa de afiliados, a extensão regista automaticamente a tua visita junto da rede de afiliados (por exemplo Awin), sem te redirecionar para lado nenhum. Se acabares por comprar, podemos receber uma pequena comissão da loja. Isto nunca altera o preço que pagas nem acrescenta qualquer custo. Podes desativar esta função a qualquer momento em Definições, no interruptor «Permitir marcação de afiliado em lojas parceiras»."
+    "message": "Nas lojas onde temos programa de afiliados, só registamos algo junto da rede de afiliados (por exemplo Awin) quando tocas em «Testar cupões» e confirmamos que um código específico baixou o preço do teu carrinho. Nunca o fazemos só por visitares a loja nem sem termos confirmado um desconto real. Se acabares por comprar, podemos receber uma pequena comissão da loja — isto nunca altera o preço que pagas nem acrescenta qualquer custo. Podes desativar esta função a qualquer momento em Definições, no interruptor «Permitir marcação de afiliado em lojas parceiras»."
   },
   "legalDataHeading": {
     "message": "Que dados guardamos"
