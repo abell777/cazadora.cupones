@@ -16,11 +16,35 @@
     return new Promise((resolve) => setTimeout(resolve, ms));
   }
 
+  // Los checkouts hechos con React/Preact (Shopify incluido) ignoran
+  // "input.value = ..." porque guardan su propio estado: hay que usar el
+  // setter nativo del navegador y luego avisar con el evento "input".
+  function setNativeValue(el, value) {
+    const descriptor = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, "value");
+    if (descriptor && descriptor.set) {
+      descriptor.set.call(el, value);
+    } else {
+      el.value = value;
+    }
+  }
+
+  function pressEnter(el) {
+    ["keydown", "keypress", "keyup"].forEach((type) => {
+      el.dispatchEvent(
+        new KeyboardEvent(type, { key: "Enter", code: "Enter", keyCode: 13, which: 13, bubbles: true })
+      );
+    });
+  }
+
   function applyCode(couponInput, applyButton, code) {
     couponInput.focus();
-    couponInput.value = code;
+    setNativeValue(couponInput, code);
     dispatchNativeInputEvents(couponInput);
-    if (applyButton) applyButton.click();
+    if (applyButton) {
+      applyButton.click();
+    } else {
+      pressEnter(couponInput); // sin botón localizado: equivale a pulsar Intro en el campo
+    }
   }
 
   // Formatea un ahorro reutilizando el símbolo/código de moneda detectado en

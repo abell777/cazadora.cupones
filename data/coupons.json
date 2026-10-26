@@ -2,8 +2,9 @@
   "mibrofit.com": [
     {
       "code": "MIBRO501",
-      "desc": "5% de descuento (válido hasta el 31/12/2026)",
-      "source": "awin"
+      "desc": "5% de descuento",
+      "source": "awin",
+      "expires": "2026-12-31"
     }
   ]
 }

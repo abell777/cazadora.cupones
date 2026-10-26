@@ -586,10 +586,19 @@ function dedupeByCode(coupons) {
   });
 }
 
+function isSeedCouponActive(coupon) {
+  if (!coupon || !coupon.expires) return true;
+  const end = new Date(`${coupon.expires}T23:59:59`);
+  if (isNaN(end.getTime())) return true; // fecha mal escrita: no ocultar el cupón
+  return Date.now() <= end.getTime();
+}
+
 async function getCouponsForDomain(domainRaw) {
   const domain = normalizeDomain(domainRaw);
   const seeds = await loadSeedCoupons();
-  const seedList = seeds[domain] || [];
+  // Los cupones de data/coupons.json pueden llevar un campo opcional
+  // "expires" (AAAA-MM-DD). Pasado ese día (inclusive) se ignoran solos.
+  const seedList = (seeds[domain] || []).filter(isSeedCouponActive);
   const communityList = await fetchCommunityCoupons(domain);
   const localList = supabaseConfigured ? [] : await getLocalUserCoupons(domain);
   return dedupeByCode([...seedList, ...communityList, ...localList]);

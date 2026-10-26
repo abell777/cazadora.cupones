@@ -59,30 +59,79 @@
     return textMatchesKeywords(window.location.href, URL_KEYWORDS);
   }
 
+  // Pistas FUERTES: casi seguro que el campo es de cupón/descuento.
+  // "reductions" es el nombre que usan los checkouts de Shopify.
+  const STRONG_INPUT_KEYWORDS = [
+    "cupon", "cupón", "coupon", "promo", "descuento", "discount", "voucher",
+    "reductions", "réduction", "reduction", "rabattcode", "gutschein",
+    "cupom", "sconto", "tarjeta regalo", "gift card"
+  ];
+  // Pistas DÉBILES: "code" aparece también en "código postal", "security code"...
+  const WEAK_INPUT_KEYWORDS = ["code", "codigo", "código", "codice"];
+  // Si solo hay pista débil, estas palabras indican que NO es un cupón.
+  const NOT_COUPON_KEYWORDS = [
+    "postal", "postcode", "zip", "country", "pais", "país", "security", "cvv", "cvc",
+    "verification", "verificación", "phone", "telefono", "teléfono", "tel", "area",
+    "sms", "otp", "iban", "swift", "plz"
+  ];
+
+  function inputHaystack(input) {
+    let labelText = "";
+    try {
+      labelText = Array.from(input.labels || []).map((l) => l.textContent).join(" ");
+    } catch (e) {
+      labelText = "";
+    }
+    return [
+      input.name,
+      input.id,
+      input.placeholder,
+      input.getAttribute("aria-label"),
+      input.className,
+      input.getAttribute("autocomplete"),
+      labelText
+    ].join(" ");
+  }
+
+  function isVisibleInput(el) {
+    return el.getClientRects().length > 0;
+  }
+
   function findCouponInput() {
     const inputs = Array.from(document.querySelectorAll("input[type='text'], input:not([type]), input[type='search']"));
+    const strong = [];
+    const weak = [];
     for (const input of inputs) {
-      const haystack = [
-        input.name,
-        input.id,
-        input.placeholder,
-        input.getAttribute("aria-label"),
-        input.className
-      ].join(" ");
-      if (textMatchesKeywords(haystack, INPUT_KEYWORDS)) {
-        return input;
+      const haystack = inputHaystack(input);
+      if (textMatchesKeywords(haystack, STRONG_INPUT_KEYWORDS)) {
+        strong.push(input);
+      } else if (
+        textMatchesKeywords(haystack, WEAK_INPUT_KEYWORDS) &&
+        !textMatchesKeywords(haystack, NOT_COUPON_KEYWORDS)
+      ) {
+        weak.push(input);
       }
+    }
+    // Muchos checkouts (Shopify) duplican el resumen del pedido para móvil y
+    // escritorio: preferimos el campo que se ve en pantalla.
+    for (const list of [strong, weak]) {
+      if (list.length === 0) continue;
+      return list.find(isVisibleInput) || list[0];
     }
     return null;
   }
 
   function findApplyButton(nearInput) {
-    const scope = nearInput ? nearInput.closest("form, div, section") || document : document;
-    const candidates = Array.from(scope.querySelectorAll("button, input[type='submit'], a"));
-    for (const el of candidates) {
-      const text = el.innerText || el.value || el.getAttribute("aria-label") || "";
-      if (textMatchesKeywords(text, BUTTON_KEYWORDS)) {
-        return el;
+    // Sube por los contenedores del campo hasta encontrar un botón de "Aplicar"
+    // cercano: en algunos checkouts el botón no está en el mismo <div> que el campo.
+    let node = nearInput ? nearInput.parentElement : document.body;
+    for (let depth = 0; node && depth < 5; depth++, node = node.parentElement) {
+      const candidates = Array.from(node.querySelectorAll("button, input[type='submit'], input[type='button'], a, [role='button']"));
+      for (const el of candidates) {
+        const text = [el.innerText, el.value, el.getAttribute("aria-label"), el.getAttribute("title")].join(" ");
+        if (textMatchesKeywords(text, BUTTON_KEYWORDS)) {
+          return el;
+        }
       }
     }
     return null;
