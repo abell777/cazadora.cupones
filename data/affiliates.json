@@ -1,9 +1,10 @@
 {
-  "_comentario": "Rellena esto según te vayan aprobando en programas de afiliados (Awin, CJ Affiliate, TradeTracker, Amazon Afiliados...). Deja el objeto vacío {} para una tienda hasta que tengas el enlace real; la extensión simplemente no hará nada en esa tienda mientras tanto.",
+  "_comentario": "Una entrada por tienda, con el dominio base (sin www ni subdominios: es.mibrofit.com se busca como mibrofit.com). Awin publisher ID: 3104528.",
 
-  "_ejemplo_awin": {
-    "_comentario": "Formato típico de Awin: sustituye MID y AFFID por los tuyos una vez aprobado para esa tienda.",
+  "_pendiente_anthbot": "Anthbot Denmark y ANTHBOT DE: añadir aquí cuando aparezcan en 'Joined' en Awin. Usa awinmid=ID_DEL_PROGRAMA.",
+
+  "mibrofit.com": {
     "network": "awin",
-    "trackingUrlTemplate": "https://www.awin1.com/cread.php?awinmid=MID&awinaffid=AFFID&clickref=cazadora&p={TARGET_URL}"
+    "trackingUrlTemplate": "https://www.awin1.com/cread.php?awinmid=131533&awinaffid=3104528&clickref=cazadora&p={TARGET_URL}"
   }
 }
